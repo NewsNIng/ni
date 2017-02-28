@@ -1,0 +1,34 @@
+{
+  "name": "ning.js",
+  "version": "0.0.1",
+  "description": "做个阳光开朗的宁",
+  "main": "dist/ning.js",
+  "scripts": {
+    "ning": "webpack --colors --watch",
+    "dev": "webpack-dev-server --progress --colors --display-error-details",
+    "lint": "eslint src dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ning.git"
+  },
+  "keywords": [
+    "ning.js"
+  ],
+  "author": "NewsNing",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ning/issues"
+  },
+  "homepage": "https://github.com/ning#readme",
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-eslint": "^7.1.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "es6-promise": "^4.0.5",
+    "eslint": "^3.10.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "App/index.html": {
+    "resources": [
+      "dist/sun.js",
+      "App/js/mui.min.js",
+      "App/css/mui.min.css",
+      "App/js/vue.min.js"
+    ],
+    "refer": [
+      "App/index2.html"
+    ]
+  },
+  "App/index2.html": {
+    "resources": [
+      "dist/sun.js",
+      "App/js/mui.min.js",
+      "App/js/vue.min.js",
+      "App/css/mui.min.css"
+    ]
+  }
+}
