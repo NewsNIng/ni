@@ -12,7 +12,7 @@ class BroadCast{
     }
 
     //发送事件 带参数 默认跳过自己 通知全部 不特定
-    send(name, data, { self = false, ids = [] } = {}){
+    send(name, data = {}, { self = false, ids = [] } = {}){
         if(!window.plus){return}
         let views = this._getViews()
         if(ids.length > 0){

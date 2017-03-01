@@ -4,6 +4,8 @@ import Broadcast from './Plus/Broadcast'
 import OAuth from './Plus/OAuth'
 import Gallery from './Plus/Gallery'
 import Cache from './Plus/Cache'
+import WebviewGroup from './Plus/WebviewGroup'
+
 import {
 	ready,
 	plusReady
@@ -22,15 +24,16 @@ ning.broadcast = new Broadcast()
 ning.gallery = Gallery
 
 
+
 // 第三方授权登录
 ning.OAuth = OAuth
 // 第三分分享
 ning.Share = Share
 // 缓存
 ning.Cache = Cache
-
-console.log(Share)
+// Webview容器
+ning.WebviewGroup = WebviewGroup
 
 if (typeof window !== 'undefined') {
 	window.ni = ning
-}
+} 
