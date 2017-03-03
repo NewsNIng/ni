@@ -5,11 +5,14 @@ let Cache = function(){
 
 class CacheBase {
 
-    constructor(cacheKey = '__this_is_cache_key_',{
+    constructor(cacheKey = '__this_is_cache_key_',defaultValue = [],{
          plus = false,
     } = {}) {
         this.key = cacheKey
         this.plus = plus
+        if(this.get() === null){
+            this.set(defaultValue)
+        }
     }
  
     
