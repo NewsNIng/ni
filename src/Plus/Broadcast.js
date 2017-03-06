@@ -4,11 +4,13 @@
 const _webviews = new WeakMap()
 const _indexID = new WeakMap()
 const _names = new WeakMap()
+const _events = new WeakMap()
 
 class BroadCast{
     constructor(){
         //构建时 认为是新增了webview
         this.newState = true
+        _events.set(this, {})
     }
 
     //发送事件 带参数 默认跳过自己 通知全部 不特定
@@ -35,9 +37,29 @@ class BroadCast{
         }
     }
 
+    //删除监听事件，全部
+    remove(name){
+        let nameEvents = _events.get(this)[name]
+        if(!nameEvents || !nameEvents.length){
+            return false
+        }
+        for(let en of nameEvents){
+            document.removeEventListener(name, en)
+        }
+        return true
+    }
+
     //定义监听事件
     listen(name, fun){
-        document.addEventListener(name, fun)
+        let events = _events.get(this),
+            tfun = function(e){
+                return fun && fun.call(fun, e.detail)
+            }
+        if(!events[name]){
+            events[name] = []
+        }
+        events[name].push(tfun)
+        document.addEventListener(name, tfun)
         return this
     }
 

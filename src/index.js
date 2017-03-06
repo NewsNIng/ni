@@ -37,3 +37,16 @@ ning.WebviewGroup = WebviewGroup
 if (typeof window !== 'undefined') {
 	window.ni = ning
 } 
+
+(function(){
+	var moduleName = ning
+	if (typeof module !== 'undefined' && typeof exports === 'object' && define.cmd) {
+		module.exports = moduleName
+	} else if (typeof define === 'function' && define.amd) {
+		define(function() { return moduleName; })
+	} else {
+		this.moduleName = moduleName
+	}
+}).call(function() {
+	return this || (typeof window !== 'undefined' ? window : global)
+})
