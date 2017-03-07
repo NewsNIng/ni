@@ -1,0 +1,276 @@
+{
+  "module/robot.html": {
+    "resources": [
+      "static/js/vendor.c71b4ae987fb49ecf768.js",
+      "static/js/manifest.abb2f1a2d47b1004545f.js",
+      "static/css/module/robot.6e3bff41b47a35ff03f3423597703c01.css",
+      "static/js/module/robot.185d21f772e06a7510c6.js",
+      "static/js/manifest.8262f85235ebc62801c2.js",
+      "static/js/module/robot.702ed0b08b629281cb90.js",
+      "static/js/vendor.df00a7402a04f68b9aaf.js",
+      "static/js/module/robot.0bfd9ab14006dc7ecd63.js",
+      "static/js/manifest.1b0d03f1ac17fde60a20.js",
+      "static/js/module/robot.2331ecd92496340018c8.js",
+      "static/js/manifest.3854939ba0820b7a6627.js",
+      "static/js/module/robot.5b3be17a6e0e93f86d68.js",
+      "static/js/manifest.6a6b474bfe635b2034c9.js",
+      "static/js/module/robot.c758eb5cbd18cba6fa97.js",
+      "static/js/manifest.3e61d06643b5e15881de.js",
+      "static/js/manifest.11e0bbcb135c7b10f4c5.js",
+      "static/js/module/robot.4299081a7b57e6ed668a.js",
+      "static/js/module/robot.9b9c4d116e24521fa9c0.js",
+      "static/js/manifest.b43e6f3507fa56190b25.js",
+      "static/js/vendor.e18d4a7b5518630262c0.js",
+      "static/js/manifest.5a2351069fd437f5d1c4.js",
+      "static/js/module/robot.17a0e332c8757a57b5b5.js",
+      "static/js/manifest.0d1dd6d99bd3f284c329.js",
+      "static/js/module/robot.a51571451ce871bc342a.js",
+      "static/js/manifest.ad9a7e7495f6d9a5d605.js",
+      "static/js/module/robot.2ea9e0925185aae7e3b1.js",
+      "static/js/manifest.b88bb219abdede0529c6.js",
+      "static/js/module/robot.1af84aa994b287e3ecea.js",
+      "static/js/manifest.b05aa65e849fab7be10a.js",
+      "static/js/module/robot.7357797e5a3082f46233.js",
+      "static/js/manifest.953ba54cc8196f622e01.js",
+      "static/js/module/robot.d3203dc5f1d4c80ad05e.js",
+      "static/js/vendor.b618c720019d737d18e4.js",
+      "static/js/module/robot.9215b197b15695938afe.js",
+      "static/js/manifest.0ba06dba60c41f520055.js",
+      "static/css/module/robot.6e547daa1df135a30a8663a1c09d5864.css",
+      "static/js/module/robot.53c05a20bbfc6f7cd38f.js",
+      "static/js/vendor.4901741bf610c8244c80.js",
+      "static/js/manifest.89c8d8e82f439e2516d3.js",
+      "static/js/module/robot.7b3a884f518b88c3102d.js",
+      "static/js/manifest.d3ff2d4853522f6e5fae.js",
+      "static/css/module/robot.0d716abbc1a6e89dde62c71c8a903b6a.css",
+      "static/js/vendor.bf46dbccc2ee0cd3a6db.js",
+      "static/js/module/robot.a5384fbdfcd70607178f.js",
+      "static/js/manifest.30197a474c4f9b3b4f1c.js"
+    ],
+    "refer": []
+  },
+  "module/home.html": {
+    "resources": [
+      "static/js/module/home.cf71954428970317b8c2.js",
+      "static/css/module/home.04d903eb8865960334ae66a04d212c53.css",
+      "static/js/module/home.2a073f05ac6bf576aa5b.js",
+      "static/js/module/home.b8e930ed13a6198803a0.js",
+      "static/js/module/home.9fcd20797917e683c1c5.js",
+      "module/home_list.html",
+      "static/css/module/home.6e3bff41b47a35ff03f3423597703c01.css",
+      "static/js/module/home.346735ae54e36cd22e3f.js",
+      "static/js/module/home.61517437967bea82839e.js",
+      "static/js/module/home.7254f4b7066aedea18bb.js",
+      "static/js/manifest.70ad3fd96007e2be702f.js",
+      "static/js/vendor.bb6ae2c1b7df8950423e.js",
+      "static/js/module/home.d258d1e41654812a25b1.js",
+      "static/js/module/home.b7fd6968fdb102453770.js"
+    ],
+    "refer": [
+      "module/bowser.html"
+    ]
+  },
+  "module/index.html": {
+    "resources": [
+      "module/home.html",
+      "static/js/vendor.4901741bf610c8244c80.js",
+      "static/js/manifest.89c8d8e82f439e2516d3.js",
+      "static/css/module/index.81a0fd9d418817694b7c9c5e1ef11339.css",
+      "static/js/module/index.36625bc59aa9a1a0adde.js",
+      "static/js/manifest.d3ff2d4853522f6e5fae.js",
+      "static/js/module/index.d9633aebc66305dd1bfa.js",
+      "static/js/manifest.3e8d6c3abf3df46cd6ee.js",
+      "static/js/module/index.21db4e031383fc9c356f.js",
+      "static/js/vendor.7b9896421594b764c247.js",
+      "static/js/vendor.386e6b7d75712150e84c.js",
+      "static/css/module/index.fd0c9980e9e81f6e2b96a7caa8438df4.css",
+      "static/js/module/index.f87df4dbe7def11c3f74.js",
+      "static/js/manifest.4c3bb92d1789964450d5.js",
+      "static/js/manifest.86a38a3f21ca1d0f4675.js",
+      "static/js/vendor.08eda69a006db7e26f69.js",
+      "static/js/module/index.334e0e29af643809ef68.js",
+      "static/js/module/index.dbe131c0316220a7fd20.js",
+      "static/js/manifest.f6f06842431364fdd94c.js",
+      "static/js/vendor.867d0371018affaa5716.js",
+      "static/js/module/index.fd5158c88388492e31a8.js",
+      "static/js/manifest.42b2306116131075a89b.js",
+      "static/js/vendor.bf46dbccc2ee0cd3a6db.js",
+      "static/js/manifest.c0f423be313edabdef09.js",
+      "static/js/manifest.17d2794769d4681cd205.js",
+      "static/js/manifest.ba210655e2f765fbcb6d.js",
+      "static/js/manifest.30197a474c4f9b3b4f1c.js",
+      "static/js/module/index.3b20e1f71987ebeddfba.js",
+      "static/js/module/index.af9cd87739264426adf1.js"
+    ],
+    "refer": [
+      "module/home.html",
+      "module/menu.html",
+      "module/box.html",
+      "module/person.html"
+    ]
+  },
+  "module/menu.html": {
+    "resources": [
+      "static/css/module/menu.1901f32afd0cc99ab37ffc39ffc00fc3.css",
+      "static/js/module/menu.1f6899dce1619ce35e9d.js",
+      "static/js/module/menu.da282c9f6cabf285aa5f.js",
+      "static/js/module/menu.6e7232587e0a437be85a.js",
+      "static/js/module/menu.303ab07ac4903e75381e.js",
+      "static/js/module/menu.c2b95a16f0b9c3f70065.js",
+      "static/js/module/menu.a201d5183530c4d756c4.js",
+      "static/js/module/menu.8deb46cba21d3d76845f.js",
+      "static/js/module/menu.a225551c60d88e92ea2a.js",
+      "static/js/manifest.70ad3fd96007e2be702f.js",
+      "static/js/vendor.bb6ae2c1b7df8950423e.js",
+      "static/js/module/menu.5847284567f4c83dafc6.js",
+      "static/js/module/menu.d1145d995b65a265ed20.js"
+    ],
+    "refer": [
+      "module/login.html"
+    ]
+  },
+  "module/box.html": {
+    "resources": [
+      "static/js/vendor.4901741bf610c8244c80.js",
+      "static/js/module/box.0a144265902b736d49ca.js",
+      "static/js/manifest.89c8d8e82f439e2516d3.js",
+      "static/css/module/box.6e3bff41b47a35ff03f3423597703c01.css",
+      "static/js/manifest.d3ff2d4853522f6e5fae.js",
+      "static/js/vendor.386e6b7d75712150e84c.js",
+      "static/js/module/box.54ef17ab7d673662b893.js",
+      "static/js/manifest.4c3bb92d1789964450d5.js",
+      "static/js/manifest.42b2306116131075a89b.js",
+      "static/js/vendor.bf46dbccc2ee0cd3a6db.js",
+      "static/js/module/box.eec0706b4594a3116f96.js",
+      "static/js/manifest.17d2794769d4681cd205.js",
+      "static/js/manifest.30197a474c4f9b3b4f1c.js",
+      "static/js/manifest.70ad3fd96007e2be702f.js",
+      "static/js/vendor.bb6ae2c1b7df8950423e.js",
+      "static/js/module/box.6454baa4eb92e95a031e.js",
+      "static/js/module/box.550dfd6155af7240976e.js",
+      "static/js/manifest.345ec7a00c2a8af4d5f0.js"
+    ],
+    "refer": [
+      "module/robot.html"
+    ]
+  },
+  "module/home_list.html": {
+    "resources": [
+      "static/js/vendor.386e6b7d75712150e84c.js",
+      "static/js/module/home_list.8f24f39026e0acf4263d.js",
+      "static/css/module/home_list.6d2b7fd2e16fff197817d76e87348f8f.css",
+      "static/js/manifest.4c3bb92d1789964450d5.js",
+      "static/js/vendor.08eda69a006db7e26f69.js",
+      "static/js/module/home_list.c4534c034474c116e86a.js"
+    ],
+    "refer": []
+  },
+  "module/login.html": {
+    "resources": [
+      "static/js/module/login.e99aaaec1e42cb9a65f9.js",
+      "static/css/module/login.0d6bf2cf2e88d74875ff14722283acdf.css",
+      "static/js/manifest.f6f06842431364fdd94c.js",
+      "static/img/logo.png",
+      "static/js/vendor.867d0371018affaa5716.js",
+      "static/css/module/login.54bf7bf6c4586243d26eb09f3c9b9ad1.css",
+      "static/js/manifest.42b2306116131075a89b.js",
+      "static/js/vendor.bf46dbccc2ee0cd3a6db.js",
+      "static/js/module/login.05aab1eaf245514efef3.js",
+      "static/js/manifest.c0f423be313edabdef09.js",
+      "static/js/manifest.17d2794769d4681cd205.js",
+      "static/js/module/login.59a0f8ba9e1ad4fce1f3.js",
+      "static/js/manifest.ba210655e2f765fbcb6d.js",
+      "static/js/module/login.76b08027b8b63b9177fa.js",
+      "static/js/manifest.30197a474c4f9b3b4f1c.js",
+      "static/js/module/login.4bc2c5c57270d14655c7.js",
+      "static/js/module/login.73876b38b21943121895.js"
+    ],
+    "refer": [
+      "module/regist.html",
+      "module/index.html"
+    ]
+  },
+  "module/regist.html": {
+    "resources": [
+      "static/css/module/regist.0d6bf2cf2e88d74875ff14722283acdf.css",
+      "static/js/manifest.f6f06842431364fdd94c.js",
+      "static/img/logo.png",
+      "static/js/module/regist.14e1a57d1eedba3712ca.js",
+      "static/js/vendor.867d0371018affaa5716.js",
+      "static/js/manifest.42b2306116131075a89b.js",
+      "static/js/vendor.bf46dbccc2ee0cd3a6db.js",
+      "static/js/module/regist.59c1b18a12e5e4b9300b.js",
+      "static/js/manifest.30197a474c4f9b3b4f1c.js"
+    ],
+    "refer": []
+  },
+  "module/bowser.html": {
+    "resources": [
+      "static/js/module/bowser.9ff876753ac833ad5c99.js",
+      "static/css/module/bowser.672011cde737b40e824c00a8f7d91d0d.css",
+      "static/js/manifest.42b2306116131075a89b.js",
+      "static/js/vendor.bf46dbccc2ee0cd3a6db.js",
+      "static/js/manifest.17d2794769d4681cd205.js",
+      "static/js/manifest.30197a474c4f9b3b4f1c.js"
+    ],
+    "refer": []
+  },
+  "module/person.html": {
+    "resources": [
+      "static/css/module/person.6e3bff41b47a35ff03f3423597703c01.css",
+      "static/js/module/person.c0a63e10270a686df899.js",
+      "static/js/manifest.42b2306116131075a89b.js",
+      "static/js/vendor.bf46dbccc2ee0cd3a6db.js",
+      "static/js/manifest.17d2794769d4681cd205.js",
+      "static/js/manifest.30197a474c4f9b3b4f1c.js",
+      "static/js/manifest.70ad3fd96007e2be702f.js",
+      "static/js/module/person.236bc1171c466e42f5c3.js",
+      "static/js/vendor.bb6ae2c1b7df8950423e.js",
+      "static/js/module/person.b0a74a2037d98151757e.js",
+      "static/js/manifest.345ec7a00c2a8af4d5f0.js"
+    ],
+    "refer": []
+  },
+  "module/lauch.html": {
+    "resources": [
+      "static/js/module/lauch.bdaf52d6f7237d9bce06.js",
+      "static/js/manifest.70ad3fd96007e2be702f.js",
+      "static/js/vendor.bb6ae2c1b7df8950423e.js",
+      "static/css/module/lauch.6e3bff41b47a35ff03f3423597703c01.css",
+      "static/js/manifest.345ec7a00c2a8af4d5f0.js",
+      "static/js/module/lauch.a2889c344e32f5ffae39.js"
+    ],
+    "refer": [
+      "module/login.html"
+    ]
+  },
+  "1.html": {
+    "resources": [
+      "js/ni.js",
+      "sub1.html"
+    ],
+    "refer": [
+      "2.html",
+      "sub3.html",
+      "sub2.html",
+      "parent.html"
+    ]
+  },
+  "sub1.html": {
+    "refer": [
+      "2.html"
+    ],
+    "resources": []
+  },
+  "parent.html": {
+    "resources": [
+      "sub1.html",
+      "js/ni.js"
+    ],
+    "refer": [
+      "sub2.html",
+      "sub1.html",
+      "sub3.html"
+    ]
+  }
+}

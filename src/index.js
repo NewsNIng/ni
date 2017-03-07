@@ -5,6 +5,7 @@ import OAuth from './Plus/OAuth'
 import Gallery from './Plus/Gallery'
 import Cache from './Plus/Cache'
 import WebviewGroup from './Plus/WebviewGroup'
+import SliderMenu from './Plus/SliderMenu'
 
 import {
 	ready,
@@ -18,8 +19,6 @@ const ning = Object.create(null)
 // ready
 ning.ready = ready
 ning.plusReady = plusReady
-// 通知
-ning.broadcast = new Broadcast()
 // 照片选取
 ning.gallery = Gallery
 
@@ -33,6 +32,11 @@ ning.Share = Share
 ning.Cache = Cache
 // Webview容器
 ning.WebviewGroup = WebviewGroup
+// 侧滑菜单
+ning.SliderMenu = SliderMenu 
+// 通知
+ning.Broadcast = Broadcast
+
 
 if (typeof window !== 'undefined') {
 	window.ni = ning

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<style type="text/css">
+			body {
+				background-color: #ccc;
+			}
+			
+			div {
+				text-align: center;
+				font-size: 100px;
+				color: green;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<div id=box><button type="button" class="mui-btn" onclick="send()">发送通知</button><br />1</div>
+
+		<script type="text/javascript" src="js/ni.js"></script>
+		<script>
+			var broadcast = new ni.Broadcast()
+			
+			broadcast.listen('say', function(data) {
+				box.innerHTML += data.name
+			})
+
+			function send() {
+				broadcast.send('say', {
+					name: '俺来也~'
+				}, {
+					self: true
+				})
+			}
+		</script>
+	</body>
+
+</html>

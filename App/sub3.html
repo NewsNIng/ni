@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<style type="text/css">
+			body {
+				background-color: #ccc;
+			}
+			div{
+				text-align: center;
+				font-size: 300px;
+				color: green;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id=box>3</div>
+		<script type="text/javascript" src="js/ni.js"></script>
+		<script>
+			new ni.Broadcast().listen('say',function(data){
+				box.innerHTML += data.name
+			})
+		</script>
+	</body>
+
+</html>

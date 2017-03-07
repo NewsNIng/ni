@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+		<style type="text/css">
+			.footer{
+				width: 100%;
+				height: 50px;
+				background-color: darkseagreen;
+				position: fixed;
+				left: 0;
+				bottom: 0;
+				display: flex;	
+			}
+			
+			
+			
+			.back{
+				background-color: #CCCCCC;
+				height: 50px;
+				width: 100px;
+				color: red;
+				text-align: center;
+				line-height: 50px;
+				font-size: 18px;
+			}
+			
+			#room{
+				height: 50px;
+				width: 300px;
+				color: greenyellow;
+				text-align: center;
+				line-height: 50px;
+				font-size: 18px;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div class="footer">
+			<div class="back">返回</div>
+			<div id='room'>0</div>
+		</div>
+		<script type="text/javascript" src="js/ni.js"></script>
+		<script>
+			var group,cw
+			
+			ni.ready(function(){
+				document.querySelector(".back").addEventListener('click',close)
+			})
+			
+			ni.plusReady(function(){
+				cw = plus.webview.currentWebview()
+				
+				// 初始化子窗口
+				var items = []
+				for(var i = 0; i < 3; i++){
+					items.push({
+						url: 'sub' + (i+1) + '.html',
+						id: 'sub' + (i+1) + '.html',
+						styles: {
+							bottom: '50px'
+						},
+						extras: {}
+					})
+				}
+
+				
+				group = new ni.WebviewGroup(cw.id,{
+					items:items,
+					onChange: function(e){
+						// 每次切换后的下标 
+						//console.log(e.index)
+						room.innerHTML = e.index
+					}
+				})
+				
+				plus.key.addEventListener('backbutton', close)
+				
+			})
+			
+			
+			function close(){
+				cw && cw.close()
+			}
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>
