@@ -1,10 +1,11 @@
 //世界将以Ta为中心
 
-import Broadcast from './Plus/Broadcast'
+import Broadcast from './Plus/Broadcast.low.js'
 import OAuth from './Plus/OAuth'
 import Gallery from './Plus/Gallery'
 import Cache from './Plus/Cache'
 import WebviewGroup from './Plus/WebviewGroup'
+import WebviewGroupLow from './Plus/WebviewGroup.low.js'
 import SliderMenu from './Plus/SliderMenu'
 
 import {
@@ -26,12 +27,14 @@ ning.gallery = Gallery
 
 // 第三方授权登录
 ning.OAuth = OAuth
-// 第三分分享
+// 第三方分享
 ning.Share = Share
 // 缓存
 ning.Cache = Cache
 // Webview容器
 ning.WebviewGroup = WebviewGroup
+// Webview容器 降级处理
+ning.WebviewGroupLow = WebviewGroupLow
 // 侧滑菜单
 ning.SliderMenu = SliderMenu 
 // 通知

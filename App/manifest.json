@@ -477,6 +477,13 @@
 					"sub3.html"
 				],
 				"priority": 0
+			},
+			"2.html": {
+				"resources": [
+					"js/ni.js"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"idle": {

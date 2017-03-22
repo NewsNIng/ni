@@ -81,8 +81,10 @@ let webviewGroup = (function () {
       items = [],
       index = 0,
       styles = {},
-      onChange = () => {}
+      onChange
     }, {showWaiting = false} = {}) {
+      onChange = onChange || function(){}
+
       this.id = id
       this.options = { 
         items,
