@@ -20,7 +20,9 @@
 			<button type="button" class="mui-btn" onclick="getCache()">缓存信息</button>
 			<button type="button" class="mui-btn" onclick="openSlider()">侧边菜单</button>
 			<br />
+			<br />
 			<button type="button" class="mui-btn" onclick="sliderWindow()">多窗口滑动切换</button>
+			<button type="button" class="mui-btn" onclick="openZipImgsWindow()" data=url="zipImg.html">图片压缩处理</button>
 		</div>
 
 		<script src="js/ni.js"></script>
@@ -122,6 +124,13 @@
 			 */
 			function sliderWindow() {
 				plus.webview.create('parent.html').show('pop-in', 250)
+			}
+			
+			/**
+			 * 打开图片压缩例子
+			 */
+			function openZipImgsWindow(){
+				plus.webview.create('zipImg.html').show('pop-in',250)
 			}
 		</script>
 	</body>

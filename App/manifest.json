@@ -456,7 +456,8 @@
 					"2.html",
 					"sub3.html",
 					"sub2.html",
-					"parent.html"
+					"parent.html",
+					"zipImg.html"
 				],
 				"priority": 0
 			},
@@ -479,6 +480,13 @@
 				"priority": 0
 			},
 			"2.html": {
+				"resources": [
+					"js/ni.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"zipImg.html": {
 				"resources": [
 					"js/ni.js"
 				],

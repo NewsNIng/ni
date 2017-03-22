@@ -253,7 +253,8 @@
 			"2.html",
 			"sub3.html",
 			"sub2.html",
-			"parent.html"
+			"parent.html",
+			"zipImg.html"
 		]
 	},
 	"sub1.html": {
@@ -274,6 +275,11 @@
 		]
 	},
 	"2.html": {
+		"resources": [
+			"js/ni.js"
+		]
+	},
+	"zipImg.html": {
 		"resources": [
 			"js/ni.js"
 		]

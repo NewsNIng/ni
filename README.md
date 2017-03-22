@@ -27,7 +27,9 @@ ni.js
 			<button type="button" class="mui-btn" onclick="getCache()">缓存信息</button>
 			<button type="button" class="mui-btn" onclick="openSlider()">侧边菜单</button>
 			<br />
+			<br />
 			<button type="button" class="mui-btn" onclick="sliderWindow()">多窗口滑动切换</button>
+			<button type="button" class="mui-btn" onclick="openZipImgsWindow()" data=url="zipImg.html">图片压缩处理</button>
 		</div>
 
 		<script src="js/ni.js"></script>
@@ -130,7 +132,120 @@ ni.js
 			function sliderWindow() {
 				plus.webview.create('parent.html').show('pop-in', 250)
 			}
+			
+			/**
+			 * 打开图片压缩例子
+			 */
+			function openZipImgsWindow(){
+				plus.webview.create('zipImg.html').show('pop-in',250)
+			}
 		</script>
+	</body>
+
+</html>
+
+```
+图片压缩例子
+
+```
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.imgRoom>div {
+				float: left;
+				margin: 10px 1%;
+				width: 31.33%;
+				padding-top: 31.33%;
+				background-color: indigo;
+				background-size: cover;
+			}
+		</style>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">图片压缩</h1>
+		</header>
+		<div class="mui-content">
+			<button type="button" class="mui-btn mui-btn-blue back" >返回</button>
+			<h5>
+				选取图片后, 将压缩至您期望的大小或者比例, 并用在div的背景显示在页面中(设置背景可以居中显示图片而不变形), 您还可以获取到所有压缩后的图片地址 
+			</h5>
+			<h5>将要压缩到某个大小 | 比例</h5>
+			<h5>数值设置小于1(如0.5)则按比例，否则按大小(单位kb)</h5>
+			<input type="number" name="" id="" value="1000" />
+			<br /><br />
+			<button type="button" class="mui-btn mui-btn-blue" onclick="onClick()">选取图片</button>
+			<br />
+			<br />
+			<button type="button" class="mui-btn mui-btn-blue" onclick="onShowImgs()">显示图片地址</button>
+			<div class="imgRoom">
+				<!--图片容器-->
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/ni.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var cw
+			ni.plusReady(function(){
+				cw = plus.webview.currentWebview()
+				plus.key.addEventListener('backbutton', close)
+			})
+			
+			ni.ready(function(){
+				document.querySelector(".back").addEventListener('click',close)
+			})
+			
+			function close(){
+				cw && cw.close()
+			}
+		
+			function onClick() {
+				// 选取图片
+				ni.gallery(function(err, imgs) {
+					if(err) { mui.toast(err.message) }
+					plus.nativeUI.showWaiting('正在压缩图片...')
+					// 处理已选取的图片 每个压缩到差不多1000kb 你也可以写比例 如 0.5
+					new ni.Zip().processImage(imgs, 1000, function(err, overImgs) {
+						plus.nativeUI.closeWaiting()
+						if(err) { mui.toast(err.message) }
+						// 将图片添加到页面显示
+						addImg(overImgs)
+					})
+
+				}, 5) // 从相册选取时，最多选择5张
+			}
+
+			function onShowImgs() {
+				var items = imgRoom.querySelectorAll('div'),
+					srcs = []
+				for(var i = 0,temp = null; i < items.length; i++) {
+					temp = items[i].style.backgroundImage.match(/url\(\"?([^\"]*)\"?\)/)
+					temp = temp? temp[1]: ''
+					srcs.push(temp)
+				}
+				plus.nativeUI.alert(srcs)
+			}
+
+			var imgRoom = document.querySelector(".imgRoom")
+
+			function addImg(imgs) {
+				var div = null
+				for(var i in imgs) {
+					div = document.createElement("div")
+					div.style.backgroundImage = 'url(' + imgs[i] + ')'
+					imgRoom.appendChild(div)
+				}
+				div = null
+			}
+		</script>
+	</head>
+
+	<body>
+
 	</body>
 
 </html>

@@ -7,6 +7,7 @@ import Cache from './Plus/Cache'
 import WebviewGroup from './Plus/WebviewGroup'
 import WebviewGroupLow from './Plus/WebviewGroup.low.js'
 import SliderMenu from './Plus/SliderMenu'
+import Zip from './Plus/Zip'
 
 import {
 	ready,
@@ -39,7 +40,8 @@ ning.WebviewGroupLow = WebviewGroupLow
 ning.SliderMenu = SliderMenu 
 // 通知
 ning.Broadcast = Broadcast
-
+// 压缩处理
+ning.Zip = Zip
 
 if (typeof window !== 'undefined') {
 	window.ni = ning
