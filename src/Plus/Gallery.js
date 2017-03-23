@@ -17,7 +17,7 @@
             }]
         }, function (e) {
             var index = e.index;
-            if (index === 0) {
+            if (index <= 0) { // 按下取消 或者 返回键
                 return;
             }
             index--;
