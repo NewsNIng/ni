@@ -52,13 +52,17 @@
 				sm = new ni.SliderMenu({
 					url: '2.html'
 				})
-
+				
+				// 监听按键
+				ni.key.overcover('keydown', function(e){
+					plus.nativeUI.alert(e.keyCode)
+				})
 			})
 
 			/**
 			 * 照片选取
 			 */
-			function gallery() {
+			function gallery() { 
 				ni.gallery(function(err, imgs) {
 					var arr = []
 					for(var i = 0; i < imgs.length; i++) {

@@ -9,6 +9,7 @@ import WebviewGroupLow from './Plus/WebviewGroup.low.js'
 import SliderMenu from './Plus/SliderMenu'
 import Zip from './Plus/Zip'
 import Download from './Plus/Download'
+import Key from './Plus/Key'
 
 import {
 	ready,
@@ -24,7 +25,8 @@ ning.ready = ready
 ning.plusReady = plusReady
 // 照片选取
 ning.gallery = Gallery
-
+// 键位处理
+ning.key = new Key()
 
 
 // 第三方授权登录
@@ -38,7 +40,7 @@ ning.WebviewGroup = WebviewGroup
 // Webview容器 降级处理
 ning.WebviewGroupLow = WebviewGroupLow
 // 侧滑菜单
-ning.SliderMenu = SliderMenu 
+ning.SliderMenu = SliderMenu
 // 通知
 ning.Broadcast = Broadcast
 // 压缩处理
@@ -46,19 +48,39 @@ ning.Zip = Zip
 // 文件下载
 ning.Download = Download
 
-if (typeof window !== 'undefined') {
-	window.ni = ning
-} 
 
-(function(){
-	var moduleName = ning
-	if (typeof module !== 'undefined' && typeof exports === 'object' && define.cmd) {
-		module.exports = moduleName
-	} else if (typeof define === 'function' && define.amd) {
-		define(function() { return moduleName; })
-	} else {
-		this.moduleName = moduleName
-	}
-}).call(function() {
-	return this || (typeof window !== 'undefined' ? window : global)
-})
+
+if(window !== undefined){
+	window.ni = ning
+}
+
+
+
+// ;(function(name,definition){
+//     //检测上下文环境是否为AMD或CMD
+//     var hasDefine = typeof define === 'function',
+//         // 检测上下文环境是否为Node
+//         hasExports = typeof module !== 'function' && module.exports;
+//     if(hasDefine){
+//         //AMD环境或CMD环境
+//         define(definition);
+// 		console.log(1)
+//     }else if(hasExports){
+//         //定义为普通Node模块
+//         module.exports = definition();
+// 		console.log(2)
+//     }else{
+// 		console.log(3)
+//         //将模块的执行结果挂在window变量中，在浏览器中this指向window对象
+//         this[name] = definition();
+//     }
+
+// })('ni',function(m){
+// 	return ning
+// })
+
+
+
+
+
+
