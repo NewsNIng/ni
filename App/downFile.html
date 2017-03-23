@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.imgRoom>div {
+				float: left;
+				margin: 10px 1%;
+				width: 31.33%;
+				padding-top: 31.33%;
+				background-color: indigo;
+				background-size: cover;
+			}
+		</style>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">文件下载</h1>
+		</header>
+		<div class="mui-content">
+			<button type="button" class="mui-btn mui-btn-blue back" >返回</button>
+			<br />
+			<h5 id="perText">0%</h5>
+			<br />
+			<button type="button" class="mui-btn mui-btn-blue" onclick="downfile()" >文件下载</button>
+			
+			<h5 id="fileText" style="word-wrap: break-word;"></h5>
+			<br />
+			<br />
+			<button type="button" class="mui-btn mui-btn-blue" onclick="downimg()">图片下载</button>
+			<div class="imgRoom" id='imgRoom'>
+				
+			</div>	
+			
+		</div>
+
+		<script type="text/javascript" src="js/ni.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var cw
+			ni.plusReady(function(){
+				cw = plus.webview.currentWebview()
+				plus.key.addEventListener('backbutton', close)
+			})
+			
+			ni.ready(function(){
+				document.querySelector(".back").addEventListener('click',close)
+			})
+			
+			function close(){
+				cw && cw.close()
+			}
+			
+			
+			function downfile(){
+				// 资源地址
+				var url = 'http://118.184.40.73/o/App/js/ni.js'
+				// 新建下载实例
+				new ni.Download(url)
+				// 监听下载进度
+				.onChange(function(per){
+					perText.innerHTML = per + '%'
+				})
+				// 下载失败时
+				.onError(function(err){
+					plus.nativeUI.alert(JSON.stringify(err))
+				})
+				// 下载成功时
+				.onSuccess(function(path){
+					fileText.innerHTML = path
+				})
+				// 开始下载
+				.start()
+			}
+			
+			
+			function downimg(){
+				// 资源地址
+				var url = 'https://sfault-avatar.b0.upaiyun.com/125/535/1255358193-5824870aaf3cb_huge256'
+				// 新建下载实例
+				new ni.Download(url,{
+					suffix: '.jpg' // 自定义文件后缀
+				})
+				// 监听下载进度
+				.onChange(function(per){
+					perText.innerHTML = per + '%'
+				})
+				// 下载失败时
+				.onError(function(err){
+					plus.nativeUI.alert(JSON.stringify(err))
+				})
+				// 下载成功时
+				.onSuccess(function(path){
+					var div = document.createElement('div')
+					div.style.backgroundImage = 'url('+ path +')'
+					imgRoom.appendChild(div)
+				})
+				// 开始下载
+				.start()
+			}
+		</script>
+	</head>
+
+	<body>
+
+	</body>
+
+</html>

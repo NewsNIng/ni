@@ -8,6 +8,7 @@ import WebviewGroup from './Plus/WebviewGroup'
 import WebviewGroupLow from './Plus/WebviewGroup.low.js'
 import SliderMenu from './Plus/SliderMenu'
 import Zip from './Plus/Zip'
+import Download from './Plus/Download'
 
 import {
 	ready,
@@ -42,6 +43,8 @@ ning.SliderMenu = SliderMenu
 ning.Broadcast = Broadcast
 // 压缩处理
 ning.Zip = Zip
+// 文件下载
+ning.Download = Download
 
 if (typeof window !== 'undefined') {
 	window.ni = ning

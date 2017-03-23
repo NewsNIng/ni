@@ -22,7 +22,8 @@
 			<br />
 			<br />
 			<button type="button" class="mui-btn" onclick="sliderWindow()">多窗口滑动切换</button>
-			<button type="button" class="mui-btn" onclick="openZipImgsWindow()" data=url="zipImg.html">图片压缩处理</button>
+			<button type="button" class="mui-btn" onclick="openZipImgsWindow()" >图片压缩处理</button>
+			<button type="button" class="mui-btn" onclick="openDownFileWindow()">文件下载</button>
 		</div>
 
 		<script src="js/ni.js"></script>
@@ -132,6 +133,15 @@
 			function openZipImgsWindow(){
 				plus.webview.create('zipImg.html').show('pop-in',250)
 			}
+			
+			/**
+			 * 打开文件下载例子
+			 */
+			function openDownFileWindow(){
+				plus.webview.create('downFile.html').show('pop-in',250)
+			}
+			
+			
 		</script>
 	</body>
 
