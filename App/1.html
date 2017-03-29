@@ -56,11 +56,24 @@
 				sm = new ni.SliderMenu({
 					url: '2.html'
 				})
-				
-				// 监听按键
-				ni.key.overcover('keydown', function(e){
-					plus.nativeUI.alert(e.keyCode)
-				})
+				// 监听按键 双击返回退出
+				ni.key.on('backbutton', function(){
+					var k = false, t = null
+					return function(e){
+						if(!t){
+							plus.nativeUI.toast('再按一次退出 NI !')	
+							t = setTimeout(function(){
+								t = null
+								k = false
+							},1000)
+							k = true
+						}else if(k){
+							plus.runtime.quit()
+						}
+						
+					}
+					
+				}())
 			})
 
 			/**

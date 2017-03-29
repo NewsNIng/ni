@@ -16,6 +16,20 @@
       "App/js/mui.min.js",
       "App/js/vue.min.js",
       "App/css/mui.min.css"
+    ],
+    "refer": []
+  },
+  "App/2.html": {
+    "resources": [
+      "App/js/ni.js"
+    ]
+  },
+  "App/1.html": {
+    "resources": [
+      "dist/ni.js"
+    ],
+    "refer": [
+      "App/2.html"
     ]
   }
 }

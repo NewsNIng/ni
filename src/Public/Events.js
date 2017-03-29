@@ -79,7 +79,9 @@ let Events_ = function () {
             events_one[eventName] = []
         }
 
-
+        getEvents(eventName){
+            return {events: events[eventName], events_one: events_one[eventName]}
+        }
 
     }
 
