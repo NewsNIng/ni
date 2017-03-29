@@ -123,8 +123,8 @@ ni.js
 	ni.gallery(function(err, imgs) {
 		if(err) { plus.nativeUI.toast(err.message) }
 		plus.nativeUI.showWaiting('正在压缩图片...')
-		// 处理已选取的图片 每个压缩到差不多1000kb 你也可以写比例 如 0.5
-		new ni.Zip().processImage(imgs, getSize(), function(err, overImgs) {
+		// 处理已选取的图片 每个压缩到差不多100kb 你也可以写比例 如 0.5
+		new ni.Zip().processImage(imgs, 100, function(err, overImgs) {
 			plus.nativeUI.closeWaiting()
 			if(err) { plus.nativeUI.toast(err.message) }
 			// 展示最后压缩的图片地址
