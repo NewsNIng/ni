@@ -1,6 +1,10 @@
+import Events from '../Public/Events.js'
+
 /**
  * 5+ Broadcast.js by NewsNing 宁大大 
  */
+
+
 
 
 let BroadCastNext = function () {
@@ -28,16 +32,8 @@ let BroadCastNext = function () {
                 }
                 return allView
             }
-        })()
-
-    // 事件列表
-    const events = {
-
-        },
-        // 单次事件列表
-        events_one = {
-
-        }
+        })(),
+        events = new Events()
 
     //页面通知类
     class Broadcast {
@@ -45,7 +41,6 @@ let BroadCastNext = function () {
          * 构造器函数
          */
         constructor() {
-
         }
 
         /**
@@ -54,12 +49,7 @@ let BroadCastNext = function () {
          * @param {Function} callback 事件触发后执行的回调函数
          */
         on(eventName, callback) {
-            // 获取已存在的事件列表
-            if (!events[eventName]) {
-                events[eventName] = []
-            }
-            // 添加至数组
-            events[eventName].push(callback)
+            events.on(eventName, callback)
         }
 
         /**
@@ -68,12 +58,7 @@ let BroadCastNext = function () {
          * @param {Function} callback 事件触发后执行的回调函数
          */
         once(eventName, callback) {
-            // 获取已存在的单次事件列表
-            if (!events_one[eventName]) {
-                events_one[eventName] = []
-            }
-            // 添加至数组
-            events_one[eventName].push(callback)
+           events.once(eventName, callback)
         }
 
         /**
@@ -95,7 +80,7 @@ let BroadCastNext = function () {
          * @param {String} eventName 事件名称
          * @param {Object} data 传参参数值
          */
-        emitSelf(eventName) {
+        emitSelf(eventName, data) {
             Broadcast._emitSelf(eventName, data)
         }
 
@@ -155,20 +140,11 @@ let BroadCastNext = function () {
             if (typeof data === 'string') {
                 data = JSON.parse(data)
             }
-            // 获取全部事件列表 和 单次事件列表，并且合并
-            let es = [...(events[eventName] || []), ...(events_one[eventName] || [])]
-            // 遍历触发
-            for (let f of es) {
-                f && f.call(f, data)
-            }
-            // 单次事件清空
-            events_one[eventName] = []
+            events.emit(eventName, data)
         }
 
         static _offSelf(eventName) {
-            //清空事件列表
-            events[eventName] = []
-            events_one[eventName] = []
+            events.off(eventName)
         }
 
     }

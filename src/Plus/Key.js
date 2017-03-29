@@ -31,7 +31,7 @@ class Key{
     constructor(){}
 
     // 监听事件
-    listen(keyEventName, eventBack){
+    on(keyEventName, eventBack){
         keyEvents[keyEventName].push(eventBack)
         plus.key.addEventListener(keyEventName, (...arg) => {
             eventBack.call(eventBack, ...arg)
@@ -49,7 +49,7 @@ class Key{
     }
 
     // 移除事件
-    remove(keyEventName){
+    off(keyEventName){
         keyEvents[keyEventName].map((item) => {
             plus.key.removeEventListener(keyEventName, item)
         })
@@ -64,7 +64,7 @@ class Key{
     }
 
     // 触发事件
-    trigger(keyEventName){
+    emit(keyEventName){
         keyEvents[keyEventName].map((item) => {
             item.call(item,{})
         })
