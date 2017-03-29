@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">安卓自动打开键盘</h1>
+		</header>
+		<div class="mui-content">
+			<div class="back" style="width: 50px;height: 30px; border: 1px solid #000; line-height: 30px; text-align: center;">返回</div>
+			<br />
+			<br />
+			<form action="" method="post" onsubmit="return onSubmit(this)">
+				<input id="search" name="search" type="search" placeholder="">
+			</form>
+		</div>
+
+		<script type="text/javascript" src="js/ni.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var cw
+			ni.plusReady(function(){
+				cw = plus.webview.currentWebview()
+				plus.key.addEventListener('backbutton', close)
+			})
+			
+			ni.ready(function(){
+				document.querySelector(".back").addEventListener('click',close)
+			})
+			
+			function close(){
+				cw && cw.close()
+			}
+			
+			var b
+			ni.plusReady(function(){
+				b = new ni.android.SoftInput()
+				setTimeout(function(){
+					b.show(search)	
+				},100)
+				   	
+			}) 
+
+			function onSubmit(formEl) {
+				plus.nativeUI.toast(formEl['search'].value)
+				formEl['search'].value = ""
+				b.hide()
+				return false
+			}
+
+			
+		</script>
+	</head>
+
+	<body>
+
+	</body>
+
+</html>

@@ -255,7 +255,9 @@
 			"sub2.html",
 			"parent.html",
 			"zipImg.html",
-			"downFile.html"
+			"downFile.html",
+			"rect.html",
+			"softinput.html"
 		]
 	},
 	"sub1.html": {
@@ -286,6 +288,16 @@
 		]
 	},
 	"downFile.html": {
+		"resources": [
+			"js/ni.js"
+		]
+	},
+	"rect.html": {
+		"resources": [
+			"js/ni.js"
+		]
+	},
+	"softinput.html": {
 		"resources": [
 			"js/ni.js"
 		]

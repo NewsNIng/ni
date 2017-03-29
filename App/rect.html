@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">图形绘制</h1>
+		</header>
+		<div class="mui-content">
+			<button type="button" class="mui-btn mui-btn-blue back">返回</button>
+			<p>
+
+			</p>
+		</div>
+		<script type="text/javascript" src="js/ni.js"></script>
+		<script type="text/javascript">
+			var cw
+			ni.plusReady(function() {
+				cw = plus.webview.currentWebview()
+				plus.key.addEventListener('backbutton', close)
+			})
+
+			ni.ready(function() {
+				document.querySelector(".back").addEventListener('click', close)
+			})
+
+			function close() {
+				cw && cw.close()
+			}
+
+			var str = '来自苹果六爱思普拉斯土豪金版客户端'
+
+			ni.plusReady(function() {
+				var pw = plus.screen.resolutionWidth,
+					ph = plus.screen.resolutionHeight,
+					pwc = 30
+					
+			
+				var r = pw / pwc,
+					y = 0,
+					x = 0,
+					t = 0,
+					wc = +(pw / r).toFixed(0),
+					hc = +(ph / r).toFixed(0) + 1,
+					count = str.length
+
+				var v = new View('myView', {
+					left: '0px',
+					top: '100px',
+					height: hc + 'px',
+					width:  '100%',
+					position: 'static',
+					opacity: 0.9
+				})
+
+				v.view.drawRect('rgba(0,0,0,0.15)', {}, 'sss')
+				var i = 0, ii = 1;
+				setTimeout(function _draw(){
+					t = i % wc
+					if(t === 0 && i !== 0) {
+						y += r * ii
+					}
+					x = t * r
+					v.view.drawText(str[i], {
+						top: y + 'px',
+						left: x + 'px',
+						height: r + 'px',
+						width: r + 'px',
+					}, {
+						color: '#' + Math.floor(Math.random() * 16777215).toString(16),
+						size: '15px'
+					},'ss' + i)
+					i += ii
+					if(i >= count - 1 || i <= 0){
+						ii *= -1
+					}
+					setTimeout(_draw,18)
+				})
+				
+				v.show()
+				cw.append(v.view)
+
+			})
+
+			class View {
+				constructor(id = `__NI_VIEW_${Date.now()}__`, {
+					top = '35%',
+					left = '35%',
+					width = '30%',
+					height = '30%',
+					dock = 'left', // 仅当View控件添加到Webview窗口对象中并且position属性值设置为"dock"时才生效 
+					position = 'absolute', //static dock 定位方式 
+					opacity = 1, // 0 - 1 透明度 
+				} = {}) {
+					this.id = id
+					this.styles = {
+						top,
+						left,
+						width,
+						height,
+						dock,
+						position,
+						opacity
+					}
+					this._init()
+					this._initEvent()
+				}
+
+				_init() {
+					this.view = plus.nativeObj.View.getViewById(this.id)
+					if(this.view) {
+						this.view.setStyle(this.styles)
+					} else {
+						this.view = new plus.nativeObj.View(this.id, this.styles)
+					}
+					this.reset()
+
+				}
+
+				_initEvent() {
+					this.view.setTouchEventRect()
+					this.view.interceptTouchEvent(false)
+					//					this.view.addEventListener('touchstart', ({
+					//						clientX,
+					//						clientY,
+					//						pageX,
+					//						pageY,
+					//						screenX,
+					//						screenY,
+					//						target
+					//					} = e) => {
+					//						alert(e)
+					//						console.log(screenX)
+					//					}, false)
+
+					this.view.addEventListener('touchstart', function(e) {
+						alert(1123123)
+					})
+				}
+
+				show() {
+					this.view.show()
+				}
+
+				reset() {
+					this.view.reset()
+				}
+
+			}
+
+			class Rect {
+				constructor() {
+					new plus.nativeObj.Rect()
+				}
+			}
+		</script>
+	</body>
+
+</html>

@@ -25,6 +25,8 @@ class Zip {
         this._zipImgs(imgUrls, (overImgs) => {
             callback(null, overImgs)
         }, 0, wantSize)
+
+        
     }
 
     /**
@@ -94,6 +96,21 @@ class Zip {
 
         }, callback)
     }
+
+    // _getFileSize(filePath){
+    //     return new Promise((re, rj) => {
+    //         plus.io.resolveLocalFileSystemURL(filePath, entry => {
+    //             // 如果不是一个文件
+    //             if (!entry.isFile) { rj({ message: 'Picture path error' }) }
+    //             entry.getMetadata(metadata => {
+    //                 re(metadata.size / (1024))
+    //             }, rj)
+
+    //         }, rj)
+    //     })
+    // }
+
+
 
 }
 

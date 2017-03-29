@@ -24,6 +24,10 @@
 			<button type="button" class="mui-btn" onclick="sliderWindow()">多窗口滑动切换</button>
 			<button type="button" class="mui-btn" onclick="openZipImgsWindow()" >图片压缩处理</button>
 			<button type="button" class="mui-btn" onclick="openDownFileWindow()">文件下载</button>
+			<button type="button" class="mui-btn" onclick="openRectWindow()">图形绘制</button>
+			<br />
+			<br />
+			<button type="button" class="mui-btn" onclick="openSoftInputWindow()">安卓自动打开键盘</button>
 		</div>
 
 		<script src="js/ni.js"></script>
@@ -145,6 +149,20 @@
 				plus.webview.create('downFile.html').show('pop-in',250)
 			}
 			
+			
+			/**
+			 * 图形绘制
+			 */
+			function openRectWindow(){
+				plus.webview.create('rect.html').show('pop-in',250)
+			}
+			
+			/**
+			 * 安卓自动打开键盘
+			 */
+			function openSoftInputWindow(){
+				plus.webview.create('softinput.html').show('pop-in',250)
+			}
 			
 		</script>
 	</body>
