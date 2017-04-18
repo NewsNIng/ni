@@ -233,11 +233,55 @@
 			},
 			"App/1.html": {
 				"resources": [
-					"dist/ni.js"
+					"dist/ni.js",
+					"App/js/ni.js"
 				],
 				"refer": [
-					"App/2.html"
+					"App/2.html",
+					"App/parent.html",
+					"App/softinput.html",
+					"App/downFile.html",
+					"App/rect.html",
+					"App/zipImg.html"
 				],
+				"priority": 0
+			},
+			"App/parent.html": {
+				"resources": [
+					"App/sub1.html"
+				],
+				"refer": [
+					"App/sub2.html",
+					"App/sub3.html"
+				],
+				"priority": 0
+			},
+			"App/softinput.html": {
+				"resources": [
+					"App/js/ni.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"App/downFile.html": {
+				"resources": [
+					"App/js/ni.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"App/rect.html": {
+				"resources": [
+					"App/js/ni.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"App/zipImg.html": {
+				"resources": [
+					"App/js/ni.js"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},
