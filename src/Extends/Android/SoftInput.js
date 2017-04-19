@@ -29,7 +29,7 @@ class SoftInput extends AndroidBase {
     /**
      * 显示软键盘
      */
-    show(inputElem) {
+    show(inputElem, scroll = false) {
         if (inputElem) {
             if (this._isActiveElement(inputElem)) {
                 // 如果当前元素已经在焦点状态，则认为已经被用户手动唤起软键盘
@@ -37,7 +37,7 @@ class SoftInput extends AndroidBase {
             }
             this.WebviewObject.requestFocusFromTouch()
             this._setActiveElement(inputElem)
-            setTimeout(function () {
+            scroll && setTimeout(function () {
                 inputElem.scrollIntoView()
             }, 500)
             this.el = inputElem

@@ -248,7 +248,8 @@
 			},
 			"App/parent.html": {
 				"resources": [
-					"App/sub1.html"
+					"App/sub1.html",
+					"App/js/ni.js"
 				],
 				"refer": [
 					"App/sub2.html",

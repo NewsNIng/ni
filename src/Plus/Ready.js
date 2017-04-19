@@ -1,7 +1,8 @@
+
 const ready = function (fn) {
 	let readyRE = /complete|loaded|interactive/
 	if (readyRE.test(document.readyState)) {
-		setTimeout(fn, 0)
+		fn()
 	} else {
 		document.addEventListener('DOMContentLoaded', fn)
 	}
@@ -10,11 +11,12 @@ const ready = function (fn) {
 
 const plusReady = function(fn){
     if (window.plus) {
-      setTimeout(fn, 0)
+		fn()
     } else {
       document.addEventListener("plusready", fn, false)
     }
 }
+
 
 module.exports = {
     ready,

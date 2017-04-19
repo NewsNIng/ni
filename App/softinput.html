@@ -7,7 +7,7 @@
 		<title></title>
 		
 		<header class="mui-bar mui-bar-nav">
-			<h1 class="mui-title">安卓自动打开键盘</h1>
+			<h1 class="mui-title">自动打开键盘</h1>
 		</header>
 		<div class="mui-content">
 			<div class="back" style="width: 50px;height: 30px; border: 1px solid #000; line-height: 30px; text-align: center;">返回</div>
@@ -20,11 +20,6 @@
 
 		<script type="text/javascript" src="js/ni.js"></script>
 		<script type="text/javascript" charset="utf-8">
-			var cw
-			ni.plusReady(function(){
-				cw = plus.webview.currentWebview()
-				plus.key.addEventListener('backbutton', close)
-			})
 			
 			ni.ready(function(){
 				document.querySelector(".back").addEventListener('click',close)
@@ -34,13 +29,18 @@
 				cw && cw.close()
 			}
 			
-			var b
+			var cw, b
+			
 			ni.plusReady(function(){
-				b = new ni.android.SoftInput()
-				setTimeout(function(){
-					b.show(search)	
-				},100)
-				   	
+				cw = plus.webview.currentWebview()
+				
+				if(ni.os.ios){
+					b = new ni.ios.SoftInput()	
+				}else if(ni.os.android){
+					b = new ni.android.SoftInput()
+				}
+				
+				b && b.show(search)
 			}) 
 
 			function onSubmit(formEl) {

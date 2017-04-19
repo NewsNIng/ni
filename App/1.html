@@ -27,7 +27,7 @@
 			<button type="button" class="mui-btn" onclick="openRectWindow()">图形绘制</button>
 			<br />
 			<br />
-			<button type="button" class="mui-btn" onclick="openSoftInputWindow()">安卓自动打开键盘</button>
+			<button type="button" class="mui-btn" onclick="openSoftInputWindow()">自动打开键盘</button>
 		</div>
 
 		<script src="js/ni.js"></script>
@@ -50,30 +50,22 @@
 			})
 
 			ni.plusReady(function() {
+				
 				console.log('ni plusReady')
 
 				// 初始化侧滑菜单
 				sm = new ni.SliderMenu({
 					url: '2.html'
 				})
-				// 监听按键 双击返回退出
-				ni.key.on('backbutton', function(){
-					var k = false, t = null
-					return function(e){
-						if(!t){
-							plus.nativeUI.toast('再按一次退出 NI !')	
-							t = setTimeout(function(){
-								t = null
-								k = false
-							},1000)
-							k = true
-						}else if(k){
-							plus.runtime.quit()
-						}
-						
-					}
-					
-				}())
+				// 重写 返回键
+//				ni.back = function(){
+//					if(sm.isShow){
+//						sm.hide()
+//					}else{
+//						return true	
+//					}
+//					
+//				}
 			})
 
 			/**
@@ -171,7 +163,7 @@
 			}
 			
 			/**
-			 * 安卓自动打开键盘
+			 * 自动打开键盘
 			 */
 			function openSoftInputWindow(){
 				plus.webview.create('softinput.html').show('pop-in',250)

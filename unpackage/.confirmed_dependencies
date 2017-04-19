@@ -1,71 +1,72 @@
 {
-  "App/index.html": {
-    "resources": [
-      "dist/sun.js",
-      "App/js/mui.min.js",
-      "App/css/mui.min.css",
-      "App/js/vue.min.js"
-    ],
-    "refer": [
-      "App/index2.html"
-    ]
-  },
-  "App/index2.html": {
-    "resources": [
-      "dist/sun.js",
-      "App/js/mui.min.js",
-      "App/js/vue.min.js",
-      "App/css/mui.min.css"
-    ],
-    "refer": []
-  },
-  "App/2.html": {
-    "resources": [
-      "App/js/ni.js"
-    ]
-  },
-  "App/1.html": {
-    "resources": [
-      "dist/ni.js",
-      "App/js/ni.js"
-    ],
-    "refer": [
-      "App/2.html",
-      "App/parent.html",
-      "App/softinput.html",
-      "App/downFile.html",
-      "App/rect.html",
-      "App/zipImg.html"
-    ]
-  },
-  "App/parent.html": {
-    "resources": [
-      "App/sub1.html"
-    ],
-    "refer": [
-      "App/sub2.html",
-      "App/sub3.html",
-      "App/sub1.html"
-    ]
-  },
-  "App/softinput.html": {
-    "resources": [
-      "App/js/ni.js"
-    ]
-  },
-  "App/downFile.html": {
-    "resources": [
-      "App/js/ni.js"
-    ]
-  },
-  "App/rect.html": {
-    "resources": [
-      "App/js/ni.js"
-    ]
-  },
-  "App/zipImg.html": {
-    "resources": [
-      "App/js/ni.js"
-    ]
-  }
+	"App/index.html": {
+		"resources": [
+			"dist/sun.js",
+			"App/js/mui.min.js",
+			"App/css/mui.min.css",
+			"App/js/vue.min.js"
+		],
+		"refer": [
+			"App/index2.html"
+		]
+	},
+	"App/index2.html": {
+		"resources": [
+			"dist/sun.js",
+			"App/js/mui.min.js",
+			"App/js/vue.min.js",
+			"App/css/mui.min.css"
+		],
+		"refer": []
+	},
+	"App/2.html": {
+		"resources": [
+			"App/js/ni.js"
+		]
+	},
+	"App/1.html": {
+		"resources": [
+			"dist/ni.js",
+			"App/js/ni.js"
+		],
+		"refer": [
+			"App/2.html",
+			"App/parent.html",
+			"App/softinput.html",
+			"App/downFile.html",
+			"App/rect.html",
+			"App/zipImg.html"
+		]
+	},
+	"App/parent.html": {
+		"resources": [
+			"App/sub1.html",
+			"App/js/ni.js"
+		],
+		"refer": [
+			"App/sub2.html",
+			"App/sub3.html",
+			"App/sub1.html"
+		]
+	},
+	"App/softinput.html": {
+		"resources": [
+			"App/js/ni.js"
+		]
+	},
+	"App/downFile.html": {
+		"resources": [
+			"App/js/ni.js"
+		]
+	},
+	"App/rect.html": {
+		"resources": [
+			"App/js/ni.js"
+		]
+	},
+	"App/zipImg.html": {
+		"resources": [
+			"App/js/ni.js"
+		]
+	}
 }

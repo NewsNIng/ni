@@ -13,7 +13,10 @@ import Zip from './Plus/Zip'
 import Download from './Plus/Download'
 import Key from './Plus/Key'
 
+import os from './Public/OS.js'
+
 import android from './Extends/Android/index.js'
+import ios from './Extends/iOS/index.js'
 
 import {
 	ready,
@@ -22,8 +25,14 @@ import {
 
 const ning = Object.create(null)
 
+// os 
+ning.os = os
+
 // android 相关
-ning.android = android
+ning.os.android && (ning.android = android)
+
+// ios 相关
+ning.os.ios && (ning.ios = ios)
 
 // ready
 ning.ready = ready
@@ -54,7 +63,34 @@ ning.Zip = Zip
 // 文件下载
 ning.Download = Download
 
-if(window !== undefined){
+// 自动处理
+
+ning.doubleBack = function(message = '再按一次退出', dely = 1000){
+	ning.key.overcover('backbutton', function() {
+		let k = false,
+			t = null
+		return function(e) {
+			if(!t) {
+				plus.nativeUI.toast(message)
+				t = setTimeout(function() {
+					t = null
+					k = false
+				}, dely)
+				k = true
+			} else if(k) {
+				plus.runtime.quit()
+			}
+	
+		}
+	
+	}())
+}
+ning.back = function(func){
+	ning.key.overcover('backbutton', func)
+}
+
+
+if(window !== undefined) {
 	window.ni = ning
 }
 
