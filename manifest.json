@@ -242,7 +242,8 @@
 					"App/softinput.html",
 					"App/downFile.html",
 					"App/rect.html",
-					"App/zipImg.html"
+					"App/zipImg.html",
+					"App/telphone.html"
 				],
 				"priority": 0
 			},
@@ -281,6 +282,13 @@
 			"App/zipImg.html": {
 				"resources": [
 					"App/js/ni.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"App/telphone.html": {
+				"resources": [
+					"dist/ni.js"
 				],
 				"refer": [],
 				"priority": 0

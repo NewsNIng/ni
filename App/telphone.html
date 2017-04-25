@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>
+		</title>
+		<style type="text/css">
+			.textbox {
+				font-size: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">安卓电话监听</h1>
+		</header>
+		<div class="mui-content">
+			<div class="back" style="width: 50px;height: 30px; border: 1px solid #000; line-height: 30px; text-align: center;">返回</div>
+			<br />
+			<br />
+			<div class="textbox">
+				一些提示将在这里显示
+				<br />
+			</div>
+		</div>
+
+		<script type="text/javascript" src="js/ni.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			var cw, box
+
+			ni.ready(function() {
+				document.querySelector(".back").addEventListener('click', close)
+				box = document.querySelector(".textbox")
+			})
+
+			function close() {
+			
+				cw && cw.close()
+			}
+
+			ni.plusReady(function() {
+				cw = plus.webview.currentWebview()
+				
+				if(ni.os.android) {
+					new ni.android.TelPhone()
+					.on('wait', function(tel) {
+						box.innerHTML += '来电话啦 : '+ tel + '<br />'
+					})
+					.on('way', function(tel){
+						box.innerHTML += '通话中啦 : '+ tel + '<br />'
+					})
+					.on('die', function(tel){
+						box.innerHTML += '挂电话啦 : '+ tel + '<br />'
+					})
+				}
+			})
+		</script>
+
+	</body>
+
+</html>

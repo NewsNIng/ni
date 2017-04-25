@@ -35,7 +35,8 @@
 			"App/softinput.html",
 			"App/downFile.html",
 			"App/rect.html",
-			"App/zipImg.html"
+			"App/zipImg.html",
+			"App/telphone.html"
 		]
 	},
 	"App/parent.html": {
@@ -67,6 +68,11 @@
 	"App/zipImg.html": {
 		"resources": [
 			"App/js/ni.js"
+		]
+	},
+	"App/telphone.html": {
+		"resources": [
+			"dist/ni.js"
 		]
 	}
 }

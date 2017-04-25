@@ -28,6 +28,7 @@
 			<br />
 			<br />
 			<button type="button" class="mui-btn" onclick="openSoftInputWindow()">自动打开键盘</button>
+			<button type="button" class="mui-btn" onclick="openTelPhone()">【Android】来电监听</button>
 		</div>
 
 		<script src="js/ni.js"></script>
@@ -169,6 +170,10 @@
 				plus.webview.create('softinput.html').show('pop-in',250)
 			}
 			
+			
+			function openTelPhone(){
+				plus.webview.create('telphone.html').show('pop-in',250)
+			}
 		</script>
 	</body>
 
