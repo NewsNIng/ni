@@ -29,6 +29,7 @@
 			<br />
 			<button type="button" class="mui-btn" onclick="openSoftInputWindow()">自动打开键盘</button>
 			<button type="button" class="mui-btn" onclick="openTelPhone()">【Android】来电监听</button>
+			<button type="button" class="mui-btn" onclick="message()">【Android】本地通知栏</button>
 		</div>
 
 		<script src="js/ni.js"></script>
@@ -49,6 +50,8 @@
 			ni.ready(function() {
 				console.log('ni ready')
 			})
+			
+			
 
 			ni.plusReady(function() {
 				
@@ -67,7 +70,29 @@
 //					}
 //					
 //				}
+
+				
+				
+				
 			})
+			
+			var x = 1
+			var ntion = new ni.android.Notification()
+			function message(){
+				
+				
+				var id = ntion.showMessage({
+					title: '我的电脑' + x,
+					content: '[文件]' + x
+				})
+				x ++ 
+				
+				console.log(id)
+				
+				
+				
+				
+			}
 
 			/**
 			 * 照片选取

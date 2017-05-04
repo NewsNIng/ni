@@ -6,7 +6,7 @@
 
 import iOSBase from './iOSBase.js'
 
-const UIApplication = null,
+let UIApplication = null,
 	  getSharedApplication = function(){
 	  	return UIApplication && UIApplication.sharedApplication()
 	  }
@@ -20,7 +20,7 @@ export default class SnowFlake extends iOSBase{
 	deviceReady(){
 		// super.deviceReady()
 		// 初始化开关为 关
-		this.switch = false
+		this._switch = false
 		// 获取UIApplication
 		UIApplication = plus.ios.import("UIApplication")
 		
@@ -32,7 +32,7 @@ export default class SnowFlake extends iOSBase{
 			sapp.setNetworkActivityIndicatorVisible(state)
 			// 释放内存
 			this.deleteNativeObj(sapp)
-			this.switch = state
+			this._switch = state
 			sapp = null
 		}
 	}
@@ -55,7 +55,7 @@ export default class SnowFlake extends iOSBase{
 	 * 切换网络请求雪花
 	 */
 	toggle(){
-		this.__changeSnowFlake(!this.switch)
+		this.__changeSnowFlake(!this._switch)
 	}
 	
 }

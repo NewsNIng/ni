@@ -1,6 +1,7 @@
 import SoftInput from './SoftInput.js'
 import TelPhone from './TelPhone.js'
 import TelPhone6 from './TelPhone.next.js'
+import Notification from './Notification.js'
 
 const android = Object.create(null)
 
@@ -8,5 +9,7 @@ const android = Object.create(null)
 android.SoftInput = SoftInput  
 // 监听通话
 android.TelPhone = TelPhone6 
+// 通知
+android.Notification = Notification
 
 module.exports = android

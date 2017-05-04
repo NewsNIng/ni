@@ -23,7 +23,8 @@ class AndroidBase {
         this.WebviewObject = plus.webview.currentWebview().nativeInstanceObject()
     }
 
-
+	
+	
 }
 
 module.exports = AndroidBase
