@@ -63,12 +63,20 @@ ning.Zip = Zip
 // 文件下载
 ning.Download = Download
 
-// 自动处理
 
-ning.doubleBack = function(message = '再按一次退出', dely = 1000){
+
+
+/**
+ * 双击退出
+ * @param {String} message 提示语
+ * @param {Number} dely 逻辑间隔 单位：秒
+ * @param {Boolean} hide 改为返回到桌面（后台）
+ */
+ning.doubleBack = function(message = '再按一次退出', dely = 1000, hide = false){
 	ning.key.overcover('backbutton', function() {
 		let k = false,
-			t = null
+			t = null,
+			main = null
 		return function(e) {
 			if(!t) {
 				plus.nativeUI.toast(message)
@@ -78,41 +86,28 @@ ning.doubleBack = function(message = '再按一次退出', dely = 1000){
 				}, dely)
 				k = true
 			} else if(k) {
-				plus.runtime.quit()
+				
+				if(hide){ // 如果是返回到桌面模式
+					if(!main){
+						main = plus.android.runtimeMainActivity()
+					}
+					main.moveTaskToBack(false)
+				}else{
+					plus.runtime.quit()
+				}
 			}
 	
 		}
 	
 	}())
 }
+
+//自定义重写返回键
 ning.back = function(func){
 	ning.key.overcover('backbutton', func)
 }
 
 
-if(window !== undefined) {
+if(window !== undefined){
 	window.ni = ning
 }
-
-// ;(function(name,definition){
-//     //检测上下文环境是否为AMD或CMD
-//     var hasDefine = typeof define === 'function',
-//         // 检测上下文环境是否为Node
-//         hasExports = typeof module !== 'function' && module.exports;
-//     if(hasDefine){
-//         //AMD环境或CMD环境
-//         define(definition);
-// 		console.log(1)
-//     }else if(hasExports){
-//         //定义为普通Node模块
-//         module.exports = definition();
-// 		console.log(2)
-//     }else{
-// 		console.log(3)
-//         //将模块的执行结果挂在window变量中，在浏览器中this指向window对象
-//         this[name] = definition();
-//     }
-
-// })('ni',function(m){
-// 	return ning
-// })
