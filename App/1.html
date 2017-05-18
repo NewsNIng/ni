@@ -18,21 +18,27 @@
 			<button type="button" class="mui-btn" onclick="sendShare()">打开分享</button>
 			<button type="button" class="mui-btn" onclick="sendMsg()">页面通知</button>
 			<button type="button" class="mui-btn" onclick="getCache()">缓存信息</button>
+			<br />
+			<br />
 			<button type="button" class="mui-btn" onclick="openSlider()">侧边菜单</button>
-			<br />
-			<br />
 			<button type="button" class="mui-btn" onclick="sliderWindow()">多窗口滑动切换</button>
 			<button type="button" class="mui-btn" onclick="openZipImgsWindow()" >图片压缩处理</button>
 			<button type="button" class="mui-btn" onclick="openDownFileWindow()">文件下载</button>
+			<br />
+			<br />
 			<button type="button" class="mui-btn" onclick="openRectWindow()">图形绘制</button>
-			<br />
-			<br />
 			<button type="button" class="mui-btn" onclick="openSoftInputWindow()">自动打开键盘</button>
+			
+			
+			<h1>Android</h1>
 			<button type="button" class="mui-btn" onclick="openTelPhone()">【Android】来电监听</button>
 			<button type="button" class="mui-btn" onclick="message()">【Android】本地通知栏</button>
+			<br />
+			<br />
+			<button type="button" class="mui-btn" onclick="getWifiName()">【Android】获取Wifi名称</button>
 		</div>
 
-		<script src="js/ni.js"></script>
+		<script src="../dist/ni.js"></script>
 		<script>
 			var sm, group
 			var broadcast = new ni.Broadcast()
@@ -199,6 +205,20 @@
 			function openTelPhone(){
 				plus.webview.create('telphone.html').show('pop-in',250)
 			}
+			
+			function getWifiName(){
+				var ssid = 'unknow',
+				info = null
+				if(ni.os.android){
+					info = new ni.android.Wifi().getInfo()
+					ssid = info.getSSID()
+					// 您也可以直接获取SSID
+					// name = new ni.android.Wifi().getSSID()
+				}
+				alert(JSON.stringify(info))
+				plus.nativeUI.toast(ssid)
+			}
+			
 		</script>
 	</body>
 
