@@ -30,7 +30,6 @@ ning.os = os
 
 // android 相关
 ning.os.android && (ning.android = android)
-
 // ios 相关
 ning.os.ios && (ning.ios = ios)
 
