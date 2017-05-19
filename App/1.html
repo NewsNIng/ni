@@ -35,7 +35,7 @@
 			<button type="button" class="mui-btn" onclick="message()">【Android】本地通知栏</button>
 			<br />
 			<br />
-			<button type="button" class="mui-btn" onclick="getWifiName()">【Android】获取Wifi名称</button>
+			<button type="button" class="mui-btn" onclick="getWifiName()">【Android】获取Wifi信息</button>
 		</div>
 
 		<script src="../dist/ni.js"></script>
@@ -64,6 +64,7 @@
 				console.log('ni plusReady')
 
 				// 初始化侧滑菜单
+				// 侧滑好像有BUG
 				sm = new ni.SliderMenu({
 					url: '2.html'
 				})
@@ -214,8 +215,15 @@
 					ssid = wifi.getSSID()
 					// 您也可以直接获取 其它信息
 					// wifi.getInfo()
+					
+					// 获取全部
+					var list = wifi.getAllList()
+					alert('WIFI列表：\n'+list.map(function(item){
+						return item.SSID + ' ' + item.level
+					}).join('\n'))
+					
 				}
-				plus.nativeUI.toast(ssid)
+				plus.nativeUI.toast('当前连接WIFI: '+ssid)
 			}
 			
 		</script>
