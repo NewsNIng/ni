@@ -7,12 +7,13 @@ export default class Filter extends AndroidBase {
 	}
 
 	deviceReady() {
-		//super.deviceReady()
+		super.deviceReady()
 		this._init() 
 	}
 	
 	_init(){
-		this.filter = new plus.android.importClass('android.content.IntentFilter')()
+		var IntentFilter = plus.android.importClass('android.content.IntentFilter')
+		this.filter = new IntentFilter()
 	}
 	
 	/**

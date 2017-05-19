@@ -288,7 +288,8 @@
 			},
 			"App/telphone.html": {
 				"resources": [
-					"dist/ni.js"
+					"dist/ni.js",
+					"App/js/ni.js"
 				],
 				"refer": [],
 				"priority": 0
