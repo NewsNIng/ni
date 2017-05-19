@@ -5,7 +5,7 @@ export default class Receiver extends AndroidBase {
 
 	constructor(callback = () => {}) {
 		super()
-		this.receiver = null
+		//this.receiver = null
 		this.receiveFn = callback
 	}
 
@@ -26,6 +26,7 @@ export default class Receiver extends AndroidBase {
 			this.receiverFn = callback
 		}
 		return this
+		
 	}
 	
 	/**

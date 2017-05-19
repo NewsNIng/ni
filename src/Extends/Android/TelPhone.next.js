@@ -56,7 +56,7 @@ class TelPhone extends AndroidBase {
 	}
 
 	_doReceive(context, intent) {
-		//plus.android.importClass(intent)
+		plus.android.importClass(intent)
 		let phoneNumber = intent.getStringExtra(this.TelephonyManager.EXTRA_INCOMING_NUMBER),
 			telephony = context.getSystemService(context.TELEPHONY_SERVICE),
 			state = telephony.getCallState()

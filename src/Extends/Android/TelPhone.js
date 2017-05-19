@@ -56,7 +56,7 @@ class TelPhone extends AndroidBase {
 		let phoneNumber = intent.getStringExtra(this.TelephonyManager.EXTRA_INCOMING_NUMBER),
 			telephony = context.getSystemService(context.TELEPHONY_SERVICE),
 			state = telephony.getCallState()
-		
+		   
 		events.emit(this.types[state], phoneNumber)
 
 	}
