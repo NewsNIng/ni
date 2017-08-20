@@ -460,7 +460,9 @@
 					"zipImg.html",
 					"downFile.html",
 					"rect.html",
-					"softinput.html"
+					"softinput.html",
+					"Vue/index.html",
+					"telphone.html"
 				],
 				"priority": 0
 			},
@@ -513,6 +515,14 @@
 			"softinput.html": {
 				"resources": [
 					"js/ni.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"Vue/index.html": {
+				"resources": [
+					"js/vue.ni.js",
+					"Vue/vue.min.js"
 				],
 				"refer": [],
 				"priority": 0

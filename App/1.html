@@ -20,15 +20,17 @@
 			<button type="button" class="mui-btn" onclick="getCache()">缓存信息</button>
 			<br />
 			<br />
-			<button type="button" class="mui-btn" onclick="openSlider()">侧边菜单</button>
+			<!--<button type="button" class="mui-btn" onclick="openSlider()">侧边菜单</button>-->
 			<button type="button" class="mui-btn" onclick="sliderWindow()">多窗口滑动切换</button>
-			<button type="button" class="mui-btn" onclick="openZipImgsWindow()" >图片压缩处理</button>
+			<button type="button" class="mui-btn" onclick="openZipImgsWindow()">图片压缩处理</button>
 			<button type="button" class="mui-btn" onclick="openDownFileWindow()">文件下载</button>
 			<br />
 			<br />
 			<button type="button" class="mui-btn" onclick="openRectWindow()">图形绘制</button>
 			<button type="button" class="mui-btn" onclick="openSoftInputWindow()">自动打开键盘</button>
 			
+			<h1>Vue</h1>
+			<button type="button" class="mui-btn" onclick="openVueWindow()">插件</button>
 			
 			<h1>Android</h1>
 			<button type="button" class="mui-btn" onclick="openTelPhone()">【Android】来电监听</button>
@@ -38,73 +40,51 @@
 			<button type="button" class="mui-btn" onclick="getWifiName()">【Android】获取Wifi信息</button>
 		</div>
 
-		<script src="../dist/ni.js"></script>
+		<script src="js/ni.js"></script>
+		
 		<script>
 			var sm, group
 			var broadcast = new ni.Broadcast()
 
-			// 删除之前say事件
-			broadcast.remove('say')
-
-			// 监听say事件
-			broadcast.listen('say', function(data) {
-				alert('Hello, ' + data.name)
-			})
-			
-			
-
 			ni.ready(function() {
 				console.log('ni ready')
 			})
-			
-			
 
 			ni.plusReady(function() {
-				
+
 				console.log('ni plusReady')
+				// 删除之前say事件
+				broadcast.off('say')
 
-				// 初始化侧滑菜单
-				// 侧滑好像有BUG
-				sm = new ni.SliderMenu({
-					url: '2.html'
+				// 监听say事件
+				broadcast.on('say', function(data) {
+					alert('Hello, ' + data.name)
 				})
-				// 重写 返回键
-//				ni.back = function(){
-//					if(sm.isShow){
-//						sm.hide()
-//					}else{
-//						return true	
-//					}
-//					
-//				}
+				
+				// 添加双击返回桌面
+				ni.doubleBack()
 
-				
-				
-				
 			})
-			
+
 			var x = 1
 			var ntion = new ni.android.Notification()
-			function message(){
-				
-				
+
+			function message() {
+
 				var id = ntion.showMessage({
 					title: '我的电脑' + x,
 					content: '[文件]' + x
 				})
-				x ++ 
-				
+				x++
+
 				console.log(id)
-				
-				
-				
-				
+
 			}
 
 			/**
 			 * 照片选取
 			 */
-			function gallery() { 
+			function gallery() {
 				ni.gallery(function(err, imgs) {
 					var arr = []
 					for(var i = 0; i < imgs.length; i++) {
@@ -141,7 +121,7 @@
 			function sendMsg() {
 
 				// 发送say事件
-				broadcast.send('say', {
+				broadcast.emit('say', {
 					name: 'Ni Hao'
 				}, {
 					self: true, // 是否通知当前页面  默认不通知
@@ -172,60 +152,61 @@
 			function sliderWindow() {
 				plus.webview.create('parent.html').show('pop-in', 250)
 			}
-			
+
 			/**
 			 * 打开图片压缩例子
 			 */
-			function openZipImgsWindow(){
-				plus.webview.create('zipImg.html').show('pop-in',250)
+			function openZipImgsWindow() {
+				plus.webview.create('zipImg.html').show('pop-in', 250)
 			}
-			
+
 			/**
 			 * 打开文件下载例子
 			 */
-			function openDownFileWindow(){
-				plus.webview.create('downFile.html').show('pop-in',250)
+			function openDownFileWindow() {
+				plus.webview.create('downFile.html').show('pop-in', 250)
 			}
-			
-			
+
 			/**
 			 * 图形绘制
 			 */
-			function openRectWindow(){
-				plus.webview.create('rect.html').show('pop-in',250)
+			function openRectWindow() {
+				plus.webview.create('rect.html').show('pop-in', 250)
 			}
-			
+
 			/**
 			 * 自动打开键盘
 			 */
-			function openSoftInputWindow(){
-				plus.webview.create('softinput.html').show('pop-in',250)
+			function openSoftInputWindow() {
+				plus.webview.create('softinput.html').show('pop-in', 250)
 			}
-			
-			
-			function openTelPhone(){
-				plus.webview.create('telphone.html').show('pop-in',250)
+
+			function openTelPhone() {
+				plus.webview.create('telphone.html').show('pop-in', 250)
 			}
-			
-			function getWifiName(){
-				
+
+			function getWifiName() {
+
 				var ssid = 'unknow'
-				if(ni.os.android){
+				if(ni.os.android) {
 					var wifi = new ni.android.Wifi()
 					ssid = wifi.getSSID()
 					// 您也可以直接获取 其它信息
 					// wifi.getInfo()
-					
+
 					// 获取全部
 					var list = wifi.getAllList()
-					alert('WIFI列表：\n'+list.map(function(item){
+					alert('WIFI列表：\n' + list.map(function(item) {
 						return item.SSID + ' ' + item.level
 					}).join('\n'))
-					
+
 				}
-				plus.nativeUI.toast('当前连接WIFI: '+ssid)
+				plus.nativeUI.toast('当前连接WIFI: ' + ssid)
 			}
 			
+			function openVueWindow(){
+				plus.webview.create('Vue/index.html').show('pop-in', 250)
+			}
 		</script>
 	</body>
 

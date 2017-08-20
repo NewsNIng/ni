@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<title></title>
+	</head>
+
+	<body>
+
+		<header>
+			<h1>插件演示</h1>
+			
+		</header>
+		<div class="mui-content" id='app'>
+			<button type="button" @click='back'>返回</button>
+			<button @click='gallery'>选取照片</button>
+			{{len}}
+			<template v-for='o,i of imgs'>
+				<img :src="o" width="30%" height="30%" />
+			</template>
+		</div>
+
+		<script src="vue.min.js"></script>
+		<script src="../js/vue.ni.js"></script>
+
+		<script>
+			new Vue({
+				el: "#app",
+				data: function() {
+					return {
+						data: 'hello',
+						imgs: [],
+						maxImgLen: 9, // 最大选取数量
+					}
+				},
+				computed: {
+					len: function(){
+						return this.maxImgLen - this.imgs.length
+					}
+				},
+				plusReady: function() {
+					console.log('Vue plusReady')
+					this.$back(this.back)
+				},
+				methods: {
+					gallery: function() {
+						// 选取照片
+						this.$gallery((err, imgs) => {
+							this.imgs.push.apply(this.imgs, imgs)
+						}, this.len)
+					},
+					back: function(){
+						plus.webview.currentWebview().close()
+					}
+				}
+
+			})
+			
+			
+		</script>
+
+	</body>
+
+</html>

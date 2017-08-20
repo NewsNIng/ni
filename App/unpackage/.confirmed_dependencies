@@ -257,7 +257,9 @@
 			"zipImg.html",
 			"downFile.html",
 			"rect.html",
-			"softinput.html"
+			"softinput.html",
+			"Vue/index.html",
+			"telphone.html"
 		]
 	},
 	"sub1.html": {
@@ -300,6 +302,12 @@
 	"softinput.html": {
 		"resources": [
 			"js/ni.js"
+		]
+	},
+	"Vue/index.html": {
+		"resources": [
+			"js/vue.ni.js",
+			"Vue/vue.min.js"
 		]
 	}
 }

@@ -68,48 +68,52 @@ ning.Download = Download
 
 
 
+
 /**
  * 双击退出
  * @param {String} message 提示语
  * @param {Number} dely 逻辑间隔 单位：秒
  * @param {Boolean} hide 改为返回到桌面（后台）
  */
-ning.doubleBack = function(message = '再按一次退出', dely = 1000, hide = false){
-	ning.key.overcover('backbutton', function() {
+ning.doubleBack = function (message = '再按一次退出', dely = 1000, hide = false) {
+	ning.key.overcover('backbutton', function () {
 		let k = false,
 			t = null,
 			main = null
-		return function(e) {
-			if(!t) {
+		return function (e) {
+			if (!t) {
 				plus.nativeUI.toast(message)
-				t = setTimeout(function() {
+				t = setTimeout(function () {
 					t = null
 					k = false
 				}, dely)
 				k = true
-			} else if(k) {
-				
-				if(hide){ // 如果是返回到桌面模式
-					if(!main){
+			} else if (k) {
+
+				if (hide) { // 如果是返回到桌面模式
+					if (!main) {
 						main = plus.android.runtimeMainActivity()
 					}
 					main.moveTaskToBack(false)
-				}else{
+				} else {
 					plus.runtime.quit()
 				}
 			}
-	
+
 		}
-	
+
 	}())
 }
 
 //自定义重写返回键
-ning.back = function(func){
+ning.back = function (func) {
 	ning.key.overcover('backbutton', func)
 }
 
-
-if(window !== undefined){
+if (window !== undefined) {
 	window.ni = ning
 }
+
+
+export default ning
+

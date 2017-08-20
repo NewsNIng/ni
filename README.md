@@ -1,5 +1,9 @@
 ni.js
 
+##### 2017-08-21
+- 新增Vue插件支持
+- 去除多余功能
+
 ## 简单介绍
 
 
@@ -62,75 +66,110 @@ Android 监听电话栗子
 
 
 ```
-	var sm
-	var broadcast = new ni.Broadcast()
+	        var sm, group
+			var broadcast = new ni.Broadcast()
 
-	// 删除之前say事件
-	broadcast.remove('say')
+			ni.ready(function() {
+				console.log('ni ready')
+			})
 
-	// 监听say事件
-	broadcast.listen('say', function(data) {
-		alert('Hello, ' + data.name)
-	})
-	
-	
+			ni.plusReady(function() {
 
-	ni.ready(function() {
-		console.log('ni ready')
-	})
+				console.log('ni plusReady')
+				// 删除之前say事件
+				broadcast.off('say')
 
-	ni.plusReady(function() {
-		// 开启双击返回键退出程序
-		ni.doubleBack('3秒内再按一次退出哦！', 3000)
-	})
+				// 监听say事件
+				broadcast.on('say', function(data) {
+					alert('Hello, ' + data.name)
+				})
+				
+				// 添加双击返回桌面
+				ni.doubleBack()
 
-	/**
-	 * 照片选取
-	 */
-	function gallery() { 
-		ni.gallery(function(err, imgs) {
-			var arr = []
-			for(var i = 0; i < imgs.length; i++) {
-				arr.push(imgs[i])
+			})
+			
+			/**
+			 * 照片选取
+			 */
+			function gallery() {
+				ni.gallery(function(err, imgs) {
+					var arr = []
+					for(var i = 0; i < imgs.length; i++) {
+						arr.push(imgs[i])
+					}
+					alert(arr)
+				}, 10) //10张
 			}
-			alert(arr)
-		}, 10) //10张
-	}
 
-	/**
-	 * 打开分享
-	 */
-	function sendShare() {
-		// wxhy: 微信好友    
-		// wxpyq: 微信朋友圈
-		// qq: 腾讯QQ
-		// sinaweibo: 新浪微博
-		new ni.Share('qq', function(err, data) {
-			if(err) {
-				console.log(err)
+			/**
+			 * 打开分享
+			 */
+			function sendShare() {
+				// wxhy: 微信好友    
+				// wxpyq: 微信朋友圈
+				// qq: 腾讯QQ
+				// sinaweibo: 新浪微博
+				new ni.Share('qq', function(err, data) {
+					if(err) {
+						console.log(err)
+					}
+					console.log(JSON.stringify(data))
+				}, {
+					img: '_www/img/vhp.png', //图片地址
+					href: 'https://github.com/NewsNIng/ni', //分享的超链接
+					title: '分享标题', //当且仅当href存在时有效
+					content: '分享内容' //当且仅当href存在时有效
+				})
 			}
-			console.log(JSON.stringify(data))
-		}, {
-			img: '_www/img/vhp.png', //图片地址
-			href: 'https://github.com/NewsNIng/ni', //分享的超链接
-			title: '分享标题', //当且仅当href存在时有效
-			content: '分享内容' //当且仅当href存在时有效
-		})
-	}
 
-	/**
-	 * 页面通知
-	 */
-	function sendMsg() {
+			/**
+			 * 页面通知
+			 */
+			function sendMsg() {
 
-		// 发送say事件
-		broadcast.send('say', {
-			name: 'Ni Hao'
-		}, {
-			self: true, // 是否通知当前页面  默认不通知
-			//ids: [] // 通知特定id的webview, 默认为全部
-		})
-	}
+				// 发送say事件
+				broadcast.emit('say', {
+					name: 'Ni Hao'
+				}, {
+					self: true, // 是否通知当前页面  默认不通知
+					//ids: [] // 通知特定id的webview, 默认为全部
+				})
+			}
+
+			/**
+			 * 获取缓存
+			 */
+			function getCache() {
+				// 获取点击次数，本地标识不存在时，初始化默认值为1
+				var clickCount = new ni.Cache('CLICK_COUNT', 1)
+				// 每次点击自增1，同时被保存到本地
+				alert(clickCount.data++)
+			}
+
+			/**
+			 * 获取WIFI信息
+			 *
+			/
+			function getWifiName() {
+
+				var ssid = 'unknow'
+				if(ni.os.android) {
+					var wifi = new ni.android.Wifi()
+					ssid = wifi.getSSID()
+					// 您也可以直接获取 其它信息
+					// wifi.getInfo()
+
+					// 获取全部
+					var list = wifi.getAllList()
+					alert('WIFI列表：\n' + list.map(function(item) {
+						return item.SSID + ' ' + item.level
+					}).join('\n'))
+
+				}
+				plus.nativeUI.toast('当前连接WIFI: ' + ssid)
+			}
+			
 
 ```
 

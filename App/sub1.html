@@ -26,12 +26,16 @@
 		<script>
 			var broadcast = new ni.Broadcast()
 			
-			broadcast.listen('say', function(data) {
-				box.innerHTML += data.name
+			ni.plusReady(function(){
+				broadcast.on('say', function(data) {
+					box.innerHTML += data.name
+				})	
 			})
+			
+			
 
 			function send() {
-				broadcast.send('say', {
+				broadcast.emit('say', {
 					name: '俺来也~'
 				}, {
 					self: true

@@ -8,7 +8,7 @@ import Events from '../Public/Events.js'
 
 
 let BroadCastNext = function () {
-    const namespace = 'ni.Broadcast6'
+    const namespace = 'ni.Broadcast'
 
 
     // 获取当前webview
