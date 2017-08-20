@@ -1,14 +1,14 @@
 //世界将以Ta为中心
 
-import Broadcast from './Plus/Broadcast.low.js'
-import Broadcast6 from './Plus/Broadcast.next.js'
+import BroadcastLow from './Plus/Broadcast.low.js'
+import Broadcast from './Plus/Broadcast.next.js'
 import Share from './Plus/Share'
 import OAuth from './Plus/OAuth'
 import Gallery from './Plus/Gallery'
 import Cache from './Plus/Cache'
 import WebviewGroup from './Plus/WebviewGroup'
 import WebviewGroupLow from './Plus/WebviewGroup.low.js'
-import SliderMenu from './Plus/SliderMenu'
+//import SliderMenu from './Plus/SliderMenu'
 import Zip from './Plus/Zip'
 import Download from './Plus/Download'
 import Key from './Plus/Key'
@@ -52,10 +52,13 @@ ning.WebviewGroup = WebviewGroup
 // Webview容器 降级处理
 ning.WebviewGroupLow = WebviewGroupLow
 // 侧滑菜单
-ning.SliderMenu = SliderMenu
-// 通知
+//ning.SliderMenu = SliderMenu
+
+
+// 跨页面通知
 ning.Broadcast = Broadcast
-ning.Broadcast6 = Broadcast6
+// 跨页面通知 降级处理
+ning.BroadcastLow = BroadcastLow
 
 // 压缩处理
 ning.Zip = Zip
