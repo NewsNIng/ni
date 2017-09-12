@@ -18,7 +18,7 @@ module.exports = {
   	]
 	},
 	plugins: [
-		new webpack.BannerPlugin("ni v0.0.1 by NewsNing"),
+		new webpack.BannerPlugin("Ni.js V1.0.1 By NewsNing"),
     // new webpack.HotModuleReplacementPlugin()
 		new webpack.optimize.UglifyJsPlugin({
       compress: {

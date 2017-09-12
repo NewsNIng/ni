@@ -19,10 +19,17 @@ VueNi.install = (Vue) => {
             }
         }
     })
-
+    
     for (let key of Object.keys(ning)) {
         Vue.prototype[`$${key}`] = ning[key]
     }
+
+
+    // Vue.directive('ni-back', {
+    //     bind(el, binding, vnode, oldVnode) {
+            
+    //     }
+    // })
 
 
     VueNi.installed = true

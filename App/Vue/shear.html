@@ -10,16 +10,20 @@
 	<body>
 
 		<header>
-			<h1>插件演示</h1>
-			
+			<h1>剪切板</h1>
 		</header>
 		<div class="mui-content" id='app'>
 			<button type="button" @click='back'>返回</button>
-			<button @click='gallery'>选取照片</button>
-			{{len}}
-			<template v-for='o,i of imgs'>
-				<img :src="o" width="30%" height="30%" />
-			</template>
+			<br />
+			<br />
+			<br />
+			<input v-model="content" />
+			<button @click="copy()"> 复制 </button>
+			<br />
+			<input v-model="pasteContent" readonly />
+			<button @click="paste()"> 粘贴 </button>
+			
+			
 		</div>
 
 		<script src="vue.min.js"></script>
@@ -30,29 +34,30 @@
 				el: "#app",
 				data: function() {
 					return {
-						data: 'hello',
-						imgs: [],
-						maxImgLen: 9, // 最大选取数量
+						content: "我是默认的内容",
+						pasteContent: "",
 					}
 				},
 				computed: {
-					len: function(){
-						// 计算剩余图片选取数量
-						return this.maxImgLen - this.imgs.length
-					}
+					
 				},
 				plusReady: function() {
 					console.log('Vue plusReady')
 					// 设置返回键处理逻辑
 					this.$back(this.back)
+					
+					this.shear = this.$os.android ? new this.$android.Shear(): new this.$ios.Shear()
 				},
 				methods: {
-					gallery: function() {
-						// 选取照片
-						this.$gallery((err, imgs) => {
-							this.imgs.push.apply(this.imgs, imgs)
-						}, this.len)
+					copy: function(){
+						this.shear.copy(this.content)
+						plus.nativeUI.toast('复制成功')
 					},
+					paste: function(){
+						var value = this.shear.paste()
+						this.pasteContent = value
+					},
+					
 					back: function(){
 						plus.webview.currentWebview().close()
 					}

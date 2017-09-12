@@ -24,6 +24,7 @@
 			<button type="button" class="mui-btn" onclick="sliderWindow()">多窗口滑动切换</button>
 			<button type="button" class="mui-btn" onclick="openZipImgsWindow()">图片压缩处理</button>
 			<button type="button" class="mui-btn" onclick="openDownFileWindow()">文件下载</button>
+			<button type="button" class="mui-btn" onclick="openShearWindow()">剪切板</button>
 			<br />
 			<br />
 			<button type="button" class="mui-btn" onclick="openRectWindow()">图形绘制</button>
@@ -206,6 +207,10 @@
 			
 			function openVueWindow(){
 				plus.webview.create('Vue/index.html').show('pop-in', 250)
+			}
+			
+			function openShearWindow(){
+				plus.webview.create('Vue/shear.html').show('pop-in', 250)
 			}
 		</script>
 	</body>

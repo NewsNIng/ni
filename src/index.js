@@ -69,6 +69,7 @@ ning.Download = Download
 
 
 
+
 /**
  * 双击退出
  * @param {String} message 提示语

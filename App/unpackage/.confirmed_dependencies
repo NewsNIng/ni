@@ -259,7 +259,8 @@
 			"rect.html",
 			"softinput.html",
 			"Vue/index.html",
-			"telphone.html"
+			"telphone.html",
+			"Vue/shear.html"
 		]
 	},
 	"sub1.html": {
@@ -305,6 +306,12 @@
 		]
 	},
 	"Vue/index.html": {
+		"resources": [
+			"js/vue.ni.js",
+			"Vue/vue.min.js"
+		]
+	},
+	"Vue/shear.html": {
 		"resources": [
 			"js/vue.ni.js",
 			"Vue/vue.min.js"
