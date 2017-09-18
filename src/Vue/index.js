@@ -19,12 +19,13 @@ VueNi.install = (Vue) => {
             }
         }
     })
-    
+
     for (let key of Object.keys(ning)) {
         Vue.prototype[`$${key}`] = ning[key]
     }
 
-
+    Vue.prototype.$close = plus.webview.currentWebview().close
+    Vue.prototype.$hide = plus.webview.currentWebview().hide
     // Vue.directive('ni-back', {
     //     bind(el, binding, vnode, oldVnode) {
             

@@ -1,7 +1,7 @@
 {
   "name": "ning.js",
-  "version": "0.0.1",
-  "description": "做个阳光开朗的宁",
+  "version": "1.0.1",
+  "description": "Html5Plus 功能封装",
   "main": "dist/ning.js",
   "scripts": {
     "ning": "webpack --colors --watch",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ning.git"
+    "url": "https://github.com/ning.git"
   },
   "keywords": [
     "ning.js"
