@@ -5,7 +5,7 @@ module.exports = {
 	devtool: false,
 	entry: {
 		'ni': ['./src/index.js'],
-		'vue.ni': ['./src/Vue/index.js']
+		'vue-ni': ['./src/Vue/index.js']
 	},
 	output: {
 		path: path.resolve(__dirname, "dist"), 

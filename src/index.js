@@ -1,3 +1,4 @@
+var Symbol = require('es6-symbol');
 //世界将以Ta为中心
 
 import BroadcastLow from './Plus/Broadcast.low.js'
@@ -22,6 +23,8 @@ import {
 	ready,
 	plusReady
 } from './Plus/Ready'
+
+
 
 const ning = Object.create(null)
 

@@ -24,14 +24,11 @@ VueNi.install = (Vue) => {
         Vue.prototype[`$${key}`] = ning[key]
     }
 
-    Vue.prototype.$close = plus.webview.currentWebview().close
-    Vue.prototype.$hide = plus.webview.currentWebview().hide
-    // Vue.directive('ni-back', {
-    //     bind(el, binding, vnode, oldVnode) {
-            
-    //     }
-    // })
-
+    ning.plusReady(function(){
+        Vue.prototype.$view = plus.webview.currentWebview()
+        Vue.prototype.$close = plus.webview.currentWebview().close
+        Vue.prototype.$hide = plus.webview.currentWebview().hide
+    })
 
     VueNi.installed = true
 }
