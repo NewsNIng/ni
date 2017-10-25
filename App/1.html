@@ -29,20 +29,23 @@
 			<br />
 			<button type="button" class="mui-btn" onclick="openRectWindow()">图形绘制</button>
 			<button type="button" class="mui-btn" onclick="openSoftInputWindow()">自动打开键盘</button>
-			
+
 			<h1>Vue</h1>
 			<button type="button" class="mui-btn" onclick="openVueWindow()">插件</button>
-			
+
 			<h1>Android</h1>
 			<button type="button" class="mui-btn" onclick="openTelPhone()">【Android】来电监听</button>
 			<button type="button" class="mui-btn" onclick="message()">【Android】本地通知栏</button>
+			<br />
+			<br />
+			<button type="button" class="mui-btn" onclick="flashSwitch()">【Android】开关手电筒</button>
 			<br />
 			<br />
 			<button type="button" class="mui-btn" onclick="getWifiName()">【Android】获取Wifi信息</button>
 		</div>
 
 		<script src="js/ni.js"></script>
-		
+
 		<script>
 			var sm, group
 			var broadcast = new ni.Broadcast()
@@ -61,7 +64,7 @@
 				broadcast.on('say', function(data) {
 					alert('Hello, ' + data.name)
 				})
-				
+
 				// 添加双击返回桌面
 				ni.doubleBack()
 
@@ -204,13 +207,21 @@
 				}
 				plus.nativeUI.toast('当前连接WIFI: ' + ssid)
 			}
-			
-			function openVueWindow(){
+
+			function openVueWindow() {
 				plus.webview.create('Vue/index.html').show('pop-in', 250)
 			}
-			
-			function openShearWindow(){
+
+			function openShearWindow() {
 				plus.webview.create('Vue/shear.html').show('pop-in', 250)
+			}
+			var flash, flashIsOpen = false;
+
+			function flashSwitch() {
+				if(!flash) {
+					flash = new ni.android.Flashlight();
+				}
+				flash.toggle(flashIsOpen = !flashIsOpen);
 			}
 		</script>
 	</body>

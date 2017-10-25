@@ -4,6 +4,7 @@ import TelPhone6 from './TelPhone.next.js'
 import Notification from './Notification.js'
 import Wifi from './Wifi.js'
 import Shear from './Shear.js'
+import Flashlight from './Flashlight.js'
 
 const android = Object.create(null)
 
@@ -17,5 +18,7 @@ android.Notification = Notification
 android.Wifi = Wifi
 // 剪切板管理
 android.Shear = Shear
+// 手电筒管理
+android.Flashlight = Flashlight
 
 module.exports = android
