@@ -38,7 +38,7 @@ let webviewGroup = (function () {
     _initParent() {
       this.parent = plus.webview.getWebviewById(this.id);
       if (!this.parent) {
-        this.parent = plus.webview.create(this.id, this.id)
+        this.parent = plus.webview.create(this.id, this.id, {render: 'always'})
         this.parent.show('none')
       }
 
@@ -52,7 +52,7 @@ let webviewGroup = (function () {
         temp.index = +i
         _webviews[temp.id] = temp
         if(this.options.index === +i){
-          this.switchTab(temp.id)
+          this.switchTab(temp.id) 
         }
       }
       
@@ -62,16 +62,17 @@ let webviewGroup = (function () {
     switchTab(id) {
       let o = _webviews[id]
       id = o.id 
-      let w = plus.webview.getWebviewById(id)
+      let w = plus.webview.getWebviewById(id),
+          type = "none"
       if (!w) {
         w = plus.webview.create(o.url, id, o.styles, o.extras)
         w.hide()
         this.parent.append(w)
-        w.show("none")
-      }else if(!w.isVisible()){
-        w.show("none")
+        type = "fade-in"
+      }else if(w.isVisible()){
+        return
       }
-
+      w.show(type, plus.os.ios ? 300 : 500)
       activeId && plus.webview.hide(activeId)
       activeId = id
       this.onChange({index: o.index})

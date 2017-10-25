@@ -6,7 +6,7 @@ VueNi.installed = false
 
 VueNi.install = (Vue) => {
     if (VueNi.installed) {
-        return null;
+        return
     }
 
     Vue.mixin({
@@ -18,26 +18,19 @@ VueNi.install = (Vue) => {
                 }
             }
         }
-    });
+    })
 
     for (let key of Object.keys(ning)) {
         Vue.prototype[`$${key}`] = ning[key]
     }
 
+    ning.plusReady(function(){
+        Vue.prototype.$view = plus.webview.currentWebview()
+        Vue.prototype.$close = plus.webview.currentWebview().close
+        Vue.prototype.$hide = plus.webview.currentWebview().hide
+    })
 
-
-    Vue.prototype.$webview = Object.create(function(arr){
-        const o = {};
-        arr.forEach(item => {
-            o[item] = function(...arg){
-                return plus.webview.currentWebview()[item](...arg);
-            }
-        });
-        return o;
-    }(['close','hide']));
-     
-
-    VueNi.installed = true;
+    VueNi.installed = true
 }
 
 
