@@ -1,4 +1,5 @@
-var Symbol = require('es6-symbol');
+var Symbol = require('es6-symbol/polyfill');
+
 //世界将以Ta为中心
 
 import BroadcastLow from './Plus/Broadcast.low.js'
