@@ -14,7 +14,7 @@ class Flashlight extends AndroidBase {
         // 默认是关闭状态
         this.state = false
         // 是否高版本
-        let isHight = plus.os.version.split('.')[0] >= 5
+        let isHight = plus.os.version.split('.')[0] >= 6
 
         if(isHight){
             plus.android.importClass("android.hardware.camera2.CameraManager")
