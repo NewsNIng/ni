@@ -76,6 +76,31 @@ class Flashlight extends AndroidBase {
         this[this.state ? "close": "open"]()
     }
 
+    /**
+     * 闪动 就那种dj的感觉
+     * @param {number} n 闪动的次数
+     * @param {number} y 闪动的频率
+     */
+    shake(n = 3, y = 500){
+        return (function _(_n){
+            if(_n <= 0){
+                this.shakeTimer = null
+                return
+            }
+            this.open()
+            this.close()
+            this.shakeTimer = setTimeout(_.bind(this, _n - 1), y)
+            return this.shakeTimer
+        }.bind(this, n))() 
+    }
+
+    stop(){
+        if(!this.shakeTimer){return}
+        clearTimeout(this.shakeTimer)
+        this.shakeTimer = null
+        this.close()
+    }
+
 }
 
-export default Flashlight
+export default Flashlight 
