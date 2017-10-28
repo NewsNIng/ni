@@ -1,8 +1,8 @@
 {
-  "name": "ning.js",
-  "version": "1.0.1",
+  "name": "ni.js",
+  "version": "1.0.0",
   "description": "Html5Plus 功能封装",
-  "main": "dist/ning.js",
+  "main": "dist/ni.js",
   "scripts": {
     "ning": "webpack --colors --watch",
     "dev": "webpack-dev-server --progress --colors --display-error-details",
@@ -10,17 +10,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ning.git"
+    "url": "https://github.com/NewsNIng/ni"
   },
   "keywords": [
-    "ning.js"
+    "ni.js"
   ],
   "author": "NewsNing",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ning/issues"
+    "url": "https://github.com/NewsNIng/ni/issues"
   },
-  "homepage": "https://github.com/ning#readme",
+  "homepage": "https://github.com/NewsNIng/ni",
   "devDependencies": {
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.0",
