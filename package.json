@@ -1,6 +1,6 @@
 {
   "name": "ning.js",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Html5Plus 功能封装",
   "main": "dist/ning.js",
   "scripts": {
