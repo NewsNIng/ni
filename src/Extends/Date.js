@@ -6,26 +6,36 @@ const dp = Date.prototype
  * yyyy-MM-dd
  * yyyy/MM/dd hh:mm:ss
  */
-dp.toFormatString = function (formatString) {
-    let yyyy = this.getFullYear(),
-        MM = this.getMonth() + 1,
-        dd = this.getDate(),
-        hh = this.getHours(),
-        mm = this.getMinutes(),
-        ss = this.getSeconds()
+dp.toFormatString = function (format) {
+    if (!format) {
+        format = "yyyy-MM-dd hh:mm:ss";
+    }
 
-    MM = MM > 9 ? "" + MM : "0" + MM
-    dd = dd > 9 ? "" + dd : "0" + dd
-    hh = hh > 9 ? "" + hh : "0" + hh
-    mm = mm > 9 ? "" + mm : "0" + mm
-    ss = ss > 9 ? "" + ss : "0" + ss
+    var o = {
+        "M+": this.getMonth() + 1,  // month
+        "d+": this.getDate(),       // day
+        "H+": this.getHours(),      // hour
+        "h+": this.getHours(),      // hour
+        "m+": this.getMinutes(),    // minute
+        "s+": this.getSeconds(),    // second
+        "q+": Math.floor((this.getMonth() + 3) / 3), // quarter
+        "S": this.getMilliseconds()
+    };
 
-    return formatString.replace("yyyy", yyyy)
-        .replace("MM", MM)
-        .replace("dd", dd)
-        .replace("hh", hh)
-        .replace("mm", mm)
-        .replace("ss", ss)
+    if (/(y+)/.test(format)) {
+        format = format.replace(RegExp.$1, (this.getFullYear() + "")
+            .substr(4 - RegExp.$1.length));
+    }
+
+    for (var k in o) {
+        if (new RegExp("(" + k + ")").test(format)) {
+            format = format.replace(RegExp.$1, RegExp.$1.length == 1
+                ? o[k]
+                : ("00" + o[k]).substr(("" + o[k]).length));
+        }
+    }
+
+    return format;
 }
 
 /**

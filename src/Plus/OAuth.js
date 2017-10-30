@@ -3,6 +3,12 @@
 
 class OAuth {
 
+    /**
+     * 
+     * @param {String} type 第三方标识名称
+     * @param {Function} fn 回调函数
+     * @param {*} context 
+     */
     constructor(type, fn, context = fn) {
         this.auths = null
         this.type = type
