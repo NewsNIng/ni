@@ -8,9 +8,12 @@ VueNi.install = (Vue) => {
     if (VueNi.installed) {
         return
     }
-
+    
     Vue.mixin({
         beforeCreate() {
+            
+        },
+        mounted(){  
             if (ning.os.plus) {
                 let pr = this.$options.plusReady
                 if (pr && typeof pr === 'function') {

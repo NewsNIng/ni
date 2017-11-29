@@ -155,6 +155,15 @@ let Cache = function () {
             _data.push(...items)
             this.data = _data
         }
+
+        unshift(...items){
+            let _data = this.data
+            if (!Array.isArray(_data)) {
+                return false
+            }
+            _data.unshift(...items)
+            this.data = _data
+        }
     }
     return Cache
 }()
