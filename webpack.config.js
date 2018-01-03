@@ -4,7 +4,8 @@ var webpack = require("webpack");
 module.exports = {
 	devtool: false,
 	entry: {
-		'ni': ['./src/index.js'],
+		// 'ni': ['./src/index.js'],
+		'ni': ['./src/Vue/index.js'],
 		'vue-ni': ['./src/Vue/index.js']
 	},
 	output: {
@@ -18,7 +19,7 @@ module.exports = {
   	]
 	},
 	plugins: [
-		new webpack.BannerPlugin("Ni.js V1.0.1 By NewsNing"),
+		new webpack.BannerPlugin("Ni.js V1.0.3 By NewsNing"),
     // new webpack.HotModuleReplacementPlugin()
 		new webpack.optimize.UglifyJsPlugin({
       compress: {

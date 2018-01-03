@@ -65,4 +65,4 @@ class SoftInput extends iOSBase {
 
 }
 
-module.exports = SoftInput
+export default  SoftInput

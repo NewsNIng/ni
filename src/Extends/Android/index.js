@@ -11,14 +11,14 @@ const android = Object.create(null)
 // 软键盘
 android.SoftInput = SoftInput  
 // 监听通话
-android.TelPhone = TelPhone6 
+//android.TelPhone = TelPhone6 
 // 通知
-android.Notification = Notification
+//android.Notification = Notification
 // Wifi 管理
-android.Wifi = Wifi
+//android.Wifi = Wifi
 // 剪切板管理
 android.Shear = Shear
 // 手电筒管理
 android.Flashlight = Flashlight
 
-module.exports = android
+export default  android

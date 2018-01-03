@@ -8,12 +8,12 @@ VueNi.install = (Vue) => {
     if (VueNi.installed) {
         return
     }
-    
+
     Vue.mixin({
         beforeCreate() {
-            
+
         },
-        mounted(){  
+        mounted() {
             if (ning.os.plus) {
                 let pr = this.$options.plusReady
                 if (pr && typeof pr === 'function') {
@@ -23,11 +23,13 @@ VueNi.install = (Vue) => {
         }
     })
 
-    for (let key of Object.keys(ning)) {
+    var keys = Object.keys(ning);
+    for(let i = 0, l = keys.length; i < l; i++){
+        let key = keys[i];
         Vue.prototype[`$${key}`] = ning[key]
     }
 
-    ning.plusReady(function(){
+    ning.plusReady(function () {
         Vue.prototype.$view = plus.webview.currentWebview()
         Vue.prototype.$close = plus.webview.currentWebview().close
         Vue.prototype.$hide = plus.webview.currentWebview().hide
@@ -36,10 +38,12 @@ VueNi.install = (Vue) => {
     VueNi.installed = true
 }
 
-
-if (typeof window !== 'undefined' && window.Vue) {
-    window.ni = ning
-    window.Vue.use(VueNi)
+if (typeof window !== 'undefined') {
+    window.ni = ning;
+    window.Vue && VueNi.install(window.Vue);
 }
 
-export default VueNi
+
+export default VueNi;
+
+

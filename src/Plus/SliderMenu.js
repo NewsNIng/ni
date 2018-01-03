@@ -130,4 +130,4 @@ class SliderMenu {
 }
 
 
-module.exports = SliderMenu
+export default  SliderMenu

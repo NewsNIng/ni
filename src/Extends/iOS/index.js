@@ -11,4 +11,4 @@ ios.SnowFlake = SnowFlake
 // 剪切板管理
 ios.Shear = Shear
 
-module.exports = ios
+export default  ios

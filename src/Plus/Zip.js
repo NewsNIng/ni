@@ -110,4 +110,4 @@ class Zip {
 
 }
 
-module.exports = Zip 
+export default  Zip 

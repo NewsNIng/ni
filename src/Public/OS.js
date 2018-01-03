@@ -55,4 +55,4 @@ if (ipad) {
     os.version = ipad[2].replace(/_/g, '.');
 }
 
-module.exports = os
+export default  os

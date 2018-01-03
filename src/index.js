@@ -1,8 +1,8 @@
-var Symbol = require('es6-symbol/polyfill');
+var Promise = require('es6-promise').Promise;
 
 //世界将以Ta为中心
 
-import BroadcastLow from './Plus/Broadcast.low.js'
+// import BroadcastLow from './Plus/Broadcast.low.js' // 去除旧版本
 import Broadcast from './Plus/Broadcast.next.js'
 import Share from './Plus/Share'
 import OAuth from './Plus/OAuth'
@@ -62,7 +62,7 @@ ning.WebviewGroupLow = WebviewGroupLow
 // 跨页面通知
 ning.Broadcast = Broadcast
 // 跨页面通知 降级处理
-ning.BroadcastLow = BroadcastLow
+// ning.BroadcastLow = BroadcastLow
 
 // 压缩处理
 ning.Zip = Zip
@@ -117,6 +117,7 @@ ning.back = function (func) {
 
 if (window !== undefined) {
 	window.ni = ning
+	window.Promise = Promise
 }
 
 

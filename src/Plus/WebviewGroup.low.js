@@ -88,4 +88,4 @@ let webviewGroup = (function () {
 })()
 
 
-module.exports = webviewGroup
+export default  webviewGroup

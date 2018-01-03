@@ -23,4 +23,4 @@ class iOSBase {
 
 }
 
-module.exports = iOSBase
+export default  iOSBase

@@ -68,4 +68,4 @@ class SoftInput extends AndroidBase {
 }
 
 
-module.exports = SoftInput
+export default  SoftInput

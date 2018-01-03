@@ -54,7 +54,11 @@ let Events_ = function () {
             // 获取全部事件列表 和 单次事件列表，并且合并
             let es = [...(events[eventName] || []), ...(events_one[eventName] || [])]
             // 遍历触发
-            for (let f of es) {
+            // for (let f of es) {
+            //     f && f.call(f, data)
+            // }
+            for(let i = 0, l = es.length; i < l; i++){
+                let f = es[i]
                 f && f.call(f, data)
             }
             // 单次事件清空
@@ -88,4 +92,4 @@ let Events_ = function () {
     return Events
 }()
 
-module.exports = Events_
+export default  Events_

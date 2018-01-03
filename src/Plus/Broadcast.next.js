@@ -120,19 +120,44 @@ let BroadCastNext = function () {
             // 获取 特定 webview 数组
             if (views.length > 0) {
                 // 如果是string 类型，则统一处理获取为 webview对象
-                all.map(item => typeof item === 'string' ? plus.webview.getWebviewById(item) : item)
+                // all = views.map(item => typeof item === 'string' ? plus.webview.getWebviewById(item) : item)
+                // 防止babel转Sym bol类型
+                for(let i = 0, l = views.length; i < l; i++){
+                    let item = views[i]
+                    if(typeof item  === 'string'){
+                        item = plus.webview.getWebviewById(item)
+                    }
+                    all.push(item)
+                }
+
             } else {
                 // 不特定通知的webview数组时，直接获取全部已存在的webview
                 all = getAllWebview(true)
-            }
+            } 
             // 如果不需要通知到当前webview 则过滤
             if (!self) {
-                let v = getIndexView()
-                all = all.filter(item => item.id !== v.id)
+                let v = getIndexView() 
+                // all = all.filter(item => item.id !== v.id)
+                // 防止babel转Sym bol类型
+                var index = -1
+                for(let i = 0, l = all.length; i < l; i++){
+                    let item = all[i];
+                    if(item.id === v.id){
+                        index = i
+                        break
+                    }
+                }
+                if(index >= 0){
+                    all.splice(index, 1)
+                }
             }
             // 遍历全部页面
-            for (let v of all) {
-                v.evalJS(jsstr)
+            //for (let v of all) {
+             //   v.evalJS(jsstr)
+            //}
+
+            for(let i = 0, l = all.length; i < l; i++){
+                all[i].evalJS(jsstr)
             }
         }
 

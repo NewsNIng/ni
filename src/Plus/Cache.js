@@ -7,9 +7,13 @@ let Cache = function () {
 
         constructor(cacheKey = '__this_is_cache_key_', defaultValue = [], {
             plus = false,
+            max = false
         } = {}) {
             this.key = cacheKey
             this.plus = plus
+            this.options = {
+                max
+            }
             if (this.get() === null) {
                 this.set(defaultValue)
             }
@@ -22,12 +26,17 @@ let Cache = function () {
 
         }
 
+        getStorage(){
+            return this.plus ? plus.storage: window.localStorage;
+        }
+
         isEmpty() {
             return !this.storage(this.key)
         }
 
-        clear() {
-            return this.storage(this, key, '')
+        clear(key) {
+            return this.getStorage().removeItem(key || this.key)
+            //return this.storage(key || this.key, '')
         }
 
         get(callback) {
@@ -153,6 +162,10 @@ let Cache = function () {
                 return false
             }
             _data.push(...items)
+
+            if(this.options.max && _data.length > this.options.max){
+                _data.splice(0, _data.length - this.options.max);
+            }
             this.data = _data
         }
 
@@ -162,6 +175,9 @@ let Cache = function () {
                 return false
             }
             _data.unshift(...items)
+            if(this.options.max && _data.length > this.options.max){
+                _data.splice(this.options.max);
+            }
             this.data = _data
         }
     }

@@ -27,4 +27,4 @@ class AndroidBase {
 	
 }
 
-module.exports = AndroidBase
+export default  AndroidBase

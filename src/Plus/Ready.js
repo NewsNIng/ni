@@ -1,24 +1,25 @@
 
-const ready = function (fn) {
+export const ready = function (fn) {
 	let readyRE = /complete|loaded|interactive/
 	if (readyRE.test(document.readyState)) {
 		fn()
 	} else {
-		document.addEventListener('DOMContentLoaded', fn)
+		document.addEventListener('DOMContentLoaded', function(){
+			fn()
+		}, false)
 	}
 	return this
 }
 
-const plusReady = function(fn){
+export const plusReady = function(fn){
     if (window.plus) {
-		fn()
+			setTimeout(function() { //解决callback与plusready事件的执行时机问题(典型案例:showWaiting,closeWaiting)
+				fn()
+			}, 0)
     } else {
-      document.addEventListener("plusready", fn, false)
+			document.addEventListener("plusready", function() {
+				fn()
+			}, false)
     }
 }
 
-
-module.exports = {
-    ready,
-    plusReady
-}

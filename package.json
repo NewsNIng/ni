@@ -1,6 +1,6 @@
 {
   "name": "ni.js",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "Html5Plus 功能封装",
   "main": "dist/ni.js",
   "scripts": {
@@ -25,6 +25,7 @@
     "babel-core": "^6.18.2",
     "babel-eslint": "^7.1.0",
     "babel-loader": "^6.2.7",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-es2015": "^6.18.0",
     "es6-promise": "^4.0.5",
     "eslint": "^3.10.1",
