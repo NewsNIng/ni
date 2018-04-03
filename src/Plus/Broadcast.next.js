@@ -126,6 +126,10 @@ let BroadCastNext = function () {
                     let item = views[i]
                     if(typeof item  === 'string'){
                         item = plus.webview.getWebviewById(item)
+                        if(!item){
+                            // 页面不存在则 中止当前循环
+                            continue;
+                        }
                     }
                     all.push(item)
                 }
@@ -176,6 +180,10 @@ let BroadCastNext = function () {
     return Broadcast
 }()
 
-
+if(window !== undefined){
+    window.ni = {
+        Broadcast: BroadCastNext
+    }
+} 
 
 export default BroadCastNext

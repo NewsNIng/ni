@@ -1,8 +1,8 @@
 import SoftInput from './SoftInput.js'
-import TelPhone from './TelPhone.js'
-import TelPhone6 from './TelPhone.next.js'
-import Notification from './Notification.js'
-import Wifi from './Wifi.js'
+//import TelPhone from './TelPhone.js'
+//import TelPhone6 from './TelPhone.next.js'
+//import Notification from './Notification.js'
+//import Wifi from './Wifi.js'
 import Shear from './Shear.js'
 import Flashlight from './Flashlight.js'
 

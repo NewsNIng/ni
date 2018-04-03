@@ -99,7 +99,6 @@ class Share {
         } 
         let shares = __shares()
         for (let i in shares) {
-            console.log(JSON.stringify(shares[i]))
             if (id === shares[i].id) {
                 CallBack && CallBack(shares[i])
                 return shares[i]

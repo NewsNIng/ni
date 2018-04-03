@@ -76,10 +76,10 @@ class Zip {
 				rotate: 0
 			}, i => {
 				//压缩后图片路径替换原路径
-				imgs[index] = i.target
+				imgs[index] = i.target 
 				this._zipImgs(imgs, callback, ++index, wantSize)
 			}, e => {
-				//记录index为压缩失败false
+				//记录index为压缩失败false 
 				imgs[index] = false
 				this._zipImgs(imgs, callback, ++index, wantSize)
 			})

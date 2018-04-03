@@ -10,9 +10,11 @@
             buttons: [{
                 title: "照相机",
                 style: "destructive"
-            }, {
-                title: "最近相片"
-            }, {
+            }, 
+            // {
+            //     title: "最近相片"
+            // },
+             {
                 title: "相册"
             }]
         }, function (e) {
@@ -20,8 +22,8 @@
             if (index <= 0) { // 按下取消 或者 返回键
                 return;
             }
-            index--;
-            if (index === 0) {
+            
+            if (index === 1) {
                 var cmr = plus.camera.getCamera();
                 cmr.captureImage(function (p) {
                     plus.io.resolveLocalFileSystemURL(p, function (entry) {
@@ -38,10 +40,10 @@
                     index: 1
                 });
             } else {
-                var system = false;
-                if (index === 2) {
-                    system = true;
-                }
+                var system = true;
+                // if (index === 2) {
+                //     system = true;
+                // }
                 plus.gallery.pick(function (data) {
                     if (more) {
                         var imgs = [];

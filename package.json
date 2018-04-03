@@ -1,6 +1,6 @@
 {
   "name": "ni.js",
-  "version": "1.0.7",
+  "version": "1.1.0",
   "description": "Html5Plus 功能封装",
   "main": "dist/ni.js",
   "scripts": {
