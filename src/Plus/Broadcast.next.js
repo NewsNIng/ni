@@ -71,7 +71,7 @@ let BroadCastNext = function () {
             self = false, // 是否通知自己，默认不通知
             views = [], // 为空数组时，默认通知全部，为string数组时，认为是id，为object时，认为是webview对象
         } = {}) {
-            let jsstr = `${namespace} && ${namespace}._emitSelf && ${namespace}._emitSelf('${eventName}', '${JSON.stringify(data)}')`
+            let jsstr = `${namespace} && ${namespace}._emitSelf && ${namespace}._emitSelf('${eventName}', ${JSON.stringify(data)})`
             this._sendMessage(jsstr, self, views)
         }
 
