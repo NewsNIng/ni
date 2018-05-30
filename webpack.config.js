@@ -6,7 +6,14 @@ module.exports = {
 	entry: {
 		// 'ni': ['./src/index.js'],
 		'ni': ['./src/Vue/index.js'],
-		'vue-ni': ['./src/Vue/index.js']
+
+		'vue-ni': ['./src/Vue/index.js'],
+		
+		'vue-ni-simple':['./src/Vue/simple.js'],
+
+		'ni.Broadcast': ['./src/Plus/Broadcast.next.js'],
+		
+		
 	},
 	output: {
 		path: path.resolve(__dirname, "dist"), 

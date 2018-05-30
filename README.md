@@ -1,5 +1,17 @@
 **简要描述：** 
 
+#### 2018-05-31更新
+---------
+- 新增 vue-ni-simple.js ，包含一些开发简单常用的功能
+``` 
+// 1.去除与原生相关的Api（ni.android ni.ios）
+// 2.去除Download、os
+// 3.去除低版本 webview Promise 的兼容
+
+```
+- ni.Broadcast.js 单独发布
+---------
+
 #### 2018-04-15更新
 ---------
 - 修复Broadcast发送消息时，JSON转义错误的问题
