@@ -112,7 +112,9 @@ ning.doubleBack = function (message = '再按一次退出', dely = 1000, hide = 
 
 //自定义重写返回键
 ning.back = function (func) {
-	ning.key.overcover('backbutton', func)
+    plusReady(function(){
+        ning.key.overcover('backbutton', func)
+    });
 }
 
 if (window !== undefined) {

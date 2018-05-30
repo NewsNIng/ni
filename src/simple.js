@@ -18,7 +18,7 @@ import WebviewGroupLow from './Plus/WebviewGroup.low.js'
 //import SliderMenu from './Plus/SliderMenu'
 import Zip from './Plus/Zip'
 // import Download from './Plus/Download'
-// import Key from './Plus/Key'
+import Key from './Plus/Key' 
 
 // import os from './Public/OS.js'
 
@@ -48,7 +48,7 @@ ning.plusReady = plusReady
 // 照片选取
 ning.gallery = Gallery
 // 键位处理
-//ning.key = new Key()
+ning.key = new Key()
 
 // 第三方授权登录
 ning.OAuth = OAuth
@@ -117,7 +117,9 @@ ning.doubleBack = function (message = '再按一次退出', dely = 1000, hide = 
 
 //自定义重写返回键
 ning.back = function (func) {
-	ning.key.overcover('backbutton', func)
+    plusReady(function(){
+        ning.key.overcover('backbutton', func)
+    });
 }
 
 if (window !== undefined) {
