@@ -2,6 +2,8 @@ import ning from '../index.js'
 
 const VueNi = {}
 
+
+
 VueNi.installed = false
 
 VueNi.install = (Vue) => {
@@ -9,32 +11,39 @@ VueNi.install = (Vue) => {
         return
     }
 
+    const VuePlusReadyFn = _ => {
+        Vue.prototype.$view = plus.webview.currentWebview()
+        Vue.prototype.$close = plus.webview.currentWebview().close
+        Vue.prototype.$hide = plus.webview.currentWebview().hide
+    }
+
     Vue.mixin({
-        beforeCreate() {
+        beforeCreate() { 
 
         },
         mounted() {
-            if (ning.os.plus) {
-                let pr = this.$options.plusReady
-                if (pr && typeof pr === 'function') {
+            let pr = this.$options.plusReady
+            if (pr && typeof pr === 'function') {
+                if (window.plus) {
+                    pr.call(this)
+                    VuePlusReadyFn();
+                } else {
                     ning.plusReady(pr.bind(this))
+                    ning.plusReady(VuePlusReadyFn)  
                 }
+                
             }
+            
+
         }
     })
 
     var keys = Object.keys(ning);
-    for(let i = 0, l = keys.length; i < l; i++){
+    for (let i = 0, l = keys.length; i < l; i++) {
         let key = keys[i];
         Vue.prototype[`$${key}`] = ning[key]
     }
-
-    ning.plusReady(function () {
-        Vue.prototype.$view = plus.webview.currentWebview()
-        Vue.prototype.$close = plus.webview.currentWebview().close
-        Vue.prototype.$hide = plus.webview.currentWebview().hide
-    })
-
+    
     VueNi.installed = true
 }
 
@@ -45,5 +54,3 @@ if (typeof window !== 'undefined') {
 
 
 export default VueNi;
-
-
