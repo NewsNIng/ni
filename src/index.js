@@ -7,6 +7,7 @@ import Broadcast from './Plus/Broadcast.next.js'
 import Share from './Plus/Share'
 import OAuth from './Plus/OAuth'
 import Gallery from './Plus/Gallery'
+import Gallerys from './Plus/Gallerys'
 import Cache from './Plus/Cache'
 import WebviewGroup from './Plus/WebviewGroup'
 import WebviewGroupLow from './Plus/WebviewGroup.low.js'
@@ -42,6 +43,7 @@ ning.ready = ready
 ning.plusReady = plusReady
 // 照片选取
 ning.gallery = Gallery
+ning.gallerys = Gallerys
 // 键位处理
 ning.key = new Key()
 
