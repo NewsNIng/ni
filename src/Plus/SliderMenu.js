@@ -117,7 +117,7 @@ class SliderMenu {
         }
         let mask = 'rgba(0,0,0,0.15)',
             isShow = true
-        if (e.direction === 'left') {
+        if (e.direction === 'rtl') {
             mask = 'none'
             isShow = false
         }
