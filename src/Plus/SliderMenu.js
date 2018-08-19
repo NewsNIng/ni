@@ -115,9 +115,9 @@ class SliderMenu {
         if (e.progress !== '100') {
             return
         }
-        let mask = 'rgba(0,0,0,0.15)',
+        let mask = 'rgba(0,0,0,0.1)',
             isShow = true
-        if (e.direction === 'rtl') {
+        if (e.direction === 'rtl' || e.direction === 'left') {
             mask = 'none'
             isShow = false
         }
